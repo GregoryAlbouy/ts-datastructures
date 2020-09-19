@@ -1,10 +1,9 @@
 import {
     // List,
-    DoublyLinkedList
+    DoublyLinkedList,
 } from '../../src'
 
 describe('doubly linked list', () => {
-
     it('should push and return node', function() {
         const list = newTestList('one', 'two')
         const value = list.push('three').value
@@ -55,7 +54,7 @@ describe('doubly linked list', () => {
     })
 
     it('should unshift and return node', function() {
-        const list = newTestList("one", "two")
+        const list = newTestList('one', 'two')
         const value = list.unshift('zero').value
         const
             head = list.head!,
@@ -101,7 +100,7 @@ describe('doubly linked list', () => {
         expect(p0.next).toStrictEqual(p1)
         expect(p1.next).toStrictEqual(p2)
         expect(p2.next).toStrictEqual(p3)
-    
+
         expect(p1.prev).toStrictEqual(p0)
         expect(p2.prev).toStrictEqual(p1)
         expect(p3.prev).toStrictEqual(p2)
@@ -111,9 +110,33 @@ describe('doubly linked list', () => {
         const input = [[1, 2], [3, 4], [5, 6]]
         const list = newTestList(...input)
         const arr = list.toArray()
-        
+
         expect(arr.length).toEqual(3)
         expect(arr).toStrictEqual(input)
+    })
+
+    it('should map values', function() {
+        const input = [1, 2, 3]
+        const list = newTestList(...input)
+        const got = list.map((n: number) => 2 * n).toArray()
+
+        expect(got).toStrictEqual([2, 4, 6])
+    })
+
+    it('should map values', function() {
+        const input = [1, 2, 3]
+        const list = newTestList(...input)
+        const got = list.filter((n: number) => n % 2 === 0).toArray()
+
+        expect(got).toStrictEqual([2])
+    })
+
+    it('should reduce values', function() {
+        const input = [1, 2, 3]
+        const list = newTestList(...input)
+        const got = list.reduce((a: number, c: number) => a * c, list.head!.value)
+
+        expect(got).toEqual(6)
     })
 })
 

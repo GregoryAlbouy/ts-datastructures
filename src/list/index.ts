@@ -7,7 +7,7 @@ type ListFilterer<T> =
     (currentValue: T, currentNode?: ListNode<T>, currentList?: List<T>) => boolean
 
 type ListReducer<T, U> =
-    (accumulator: U, currentValue?: T) => U
+    (accumulator: U, currentValue: T) => U
 
 interface ListNode<T> {
     value: T
