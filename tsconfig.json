@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es2019", // Optional chaining not working with es2020+
+    "module": "es2020",
+    "declaration": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "removeComments": true,
+    "moduleResolution": "node",
+    // "isolatedModules": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true 
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}

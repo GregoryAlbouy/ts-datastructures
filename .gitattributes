@@ -1,0 +1,3 @@
+# Ignore generated files languages
+dist/** linguist-detectable=false
+docs/** linguist-detectable=false
