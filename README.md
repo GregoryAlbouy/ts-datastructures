@@ -11,11 +11,14 @@ As a huge Go enthusiast, I must admit that working with a language that support 
 * Queue
 * Stack
 
+## Documentation
+
+:point_right: [TypeDoc](https://gregoryalbouy.github.io/ts-datastructures)
+
 ## Todo
 
 Everything.
 
 * Setup package build & deploy routine with ci
-* Documentation
 * More data structures
 * Benchmarks

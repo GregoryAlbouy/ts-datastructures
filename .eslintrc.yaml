@@ -11,7 +11,7 @@ parserOptions:
   sourceType: module
 plugins:
   - '@typescript-eslint'
-ignorePatterns: ['dist/**/*']
+ignorePatterns: ['dist/**/*', docs/**/*]
 rules:
   indent: ['error', 4]
   comma-dangle: ['error', 'always-multiline']

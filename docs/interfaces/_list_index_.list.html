@@ -69,6 +69,14 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Represents a linked list, that can be a <code>SinglyLinkedList</code>
+						or a <code>DoublyLinkedList</code>.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-type-parameters">
 				<h3>Type parameters</h3>
 				<ul class="tsd-type-parameters">
@@ -128,16 +136,26 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in list/index.ts:31</li>
+									<li>Defined in <a href="https://github.com/gregoryalbouy/ts-datastructures/blob/d7ec0c8/src/list/index.ts#L105">list/index.ts:105</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Filters out elements and returns a new <code>List</code>
+									The original <code>Lise</code> remains unaltered.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>callback: <a href="../modules/_list_index_.html#listfilterer" class="tsd-signature-type">ListFilterer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The filter function.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_list_index_.list.html" class="tsd-signature-type">List</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>The new <code>List</code></p>
 						</li>
 					</ul>
 				</section>
@@ -151,16 +169,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in list/index.ts:27</li>
+									<li>Defined in <a href="https://github.com/gregoryalbouy/ts-datastructures/blob/d7ec0c8/src/list/index.ts#L82">list/index.ts:82</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the first encountered element with matching value.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The tested value.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_list_index_.listnode.html" class="tsd-signature-type">ListNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+							<p>The first matching <code>ListNode</code>, <code>undefined</code> if no match.</p>
 						</li>
 					</ul>
 				</section>
@@ -174,16 +201,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in list/index.ts:28</li>
+									<li>Defined in <a href="https://github.com/gregoryalbouy/ts-datastructures/blob/d7ec0c8/src/list/index.ts#L89">list/index.ts:89</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns an array of all encountered elements with matching value.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The tested value.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_list_index_.listnode.html" class="tsd-signature-type">ListNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>An array of matching elements.</p>
 						</li>
 					</ul>
 				</section>
@@ -197,16 +233,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in list/index.ts:26</li>
+									<li>Defined in <a href="https://github.com/gregoryalbouy/ts-datastructures/blob/d7ec0c8/src/list/index.ts#L75">list/index.ts:75</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks whether a value is present in the list.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The tested value.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p><code>true</code> if the value is found, <code>false</code> otherwise</p>
 						</li>
 					</ul>
 				</section>
@@ -220,19 +265,32 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in list/index.ts:24</li>
+									<li>Defined in <a href="https://github.com/gregoryalbouy/ts-datastructures/blob/d7ec0c8/src/list/index.ts#L68">list/index.ts:68</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Inserts a value after a <code>ListNode</code>. It fails if it does not belong
+									to the list.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value to be inserted.</p>
+									</div>
 								</li>
 								<li>
 									<h5>after: <a href="_list_index_.listnode.html" class="tsd-signature-type">ListNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The target <code>ListNode</code>.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_list_index_.listnode.html" class="tsd-signature-type">ListNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+							<p>The inserted <code>ListNode</code>, or <code>undefined</code> if the insertion failed.</p>
 						</li>
 					</ul>
 				</section>
@@ -246,19 +304,32 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in list/index.ts:23</li>
+									<li>Defined in <a href="https://github.com/gregoryalbouy/ts-datastructures/blob/d7ec0c8/src/list/index.ts#L59">list/index.ts:59</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Inserts a value before a <code>ListNode</code>. It fails if it does not belong
+									to the list.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value to be inserted.</p>
+									</div>
 								</li>
 								<li>
 									<h5>before: <a href="_list_index_.listnode.html" class="tsd-signature-type">ListNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The target <code>ListNode</code>.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_list_index_.listnode.html" class="tsd-signature-type">ListNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+							<p>The inserted <code>ListNode</code>, or <code>undefined</code> if the insertion failed.</p>
 						</li>
 					</ul>
 				</section>
@@ -272,9 +343,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in list/index.ts:30</li>
+									<li>Defined in <a href="https://github.com/gregoryalbouy/ts-datastructures/blob/d7ec0c8/src/list/index.ts#L97">list/index.ts:97</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Applies a transformation on each element and returns a new <code>List</code>.
+									The original <code>List</code> remains unaltered.</p>
+								</div>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -285,9 +362,13 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>callback: <a href="../modules/_list_index_.html#listmapper" class="tsd-signature-type">ListMapper</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The map function.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_list_index_.list.html" class="tsd-signature-type">List</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>The new <code>List</code></p>
 						</li>
 					</ul>
 				</section>
@@ -301,10 +382,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in list/index.ts:20</li>
+									<li>Defined in <a href="https://github.com/gregoryalbouy/ts-datastructures/blob/d7ec0c8/src/list/index.ts#L37">list/index.ts:37</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes the last element of the list.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="_list_index_.listnode.html" class="tsd-signature-type">ListNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+							<p>The removed <code>ListNode</code> or <code>undefined</code> if nothing was removed.</p>
 						</li>
 					</ul>
 				</section>
@@ -318,16 +405,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in list/index.ts:19</li>
+									<li>Defined in <a href="https://github.com/gregoryalbouy/ts-datastructures/blob/d7ec0c8/src/list/index.ts#L31">list/index.ts:31</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a <code>ListNode</code> with input value at the end of the list.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value attached to the element.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_list_index_.listnode.html" class="tsd-signature-type">ListNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>The added <code>ListNode</code>.</p>
 						</li>
 					</ul>
 				</section>
@@ -341,9 +437,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in list/index.ts:32</li>
+									<li>Defined in <a href="https://github.com/gregoryalbouy/ts-datastructures/blob/d7ec0c8/src/list/index.ts#L114">list/index.ts:114</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Accumulates the result of specific operation on each value and
+										returns the accumulation as a single result.
+									The original <code>List</code> remains unaltered.</p>
+								</div>
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -354,12 +457,16 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>callback: <a href="../modules/_list_index_.html#listreducer" class="tsd-signature-type">ListReducer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The filter function.</p>
+									</div>
 								</li>
 								<li>
 									<h5>initialValue: <span class="tsd-signature-type">U</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">U</span></h4>
+							<p>The new <code>List</code>.</p>
 						</li>
 					</ul>
 				</section>
@@ -373,10 +480,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in list/index.ts:22</li>
+									<li>Defined in <a href="https://github.com/gregoryalbouy/ts-datastructures/blob/d7ec0c8/src/list/index.ts#L50">list/index.ts:50</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes the first element of the list.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="_list_index_.listnode.html" class="tsd-signature-type">ListNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+							<p>The removed element or <code>undefined</code> if nothing was removed.</p>
 						</li>
 					</ul>
 				</section>
@@ -390,10 +503,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in list/index.ts:34</li>
+									<li>Defined in <a href="https://github.com/gregoryalbouy/ts-datastructures/blob/d7ec0c8/src/list/index.ts#L120">list/index.ts:120</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates an array from the <code>List</code> values.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>The array of <code>List</code> values.</p>
 						</li>
 					</ul>
 				</section>
@@ -407,16 +526,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in list/index.ts:21</li>
+									<li>Defined in <a href="https://github.com/gregoryalbouy/ts-datastructures/blob/d7ec0c8/src/list/index.ts#L44">list/index.ts:44</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds an element with input value at the front of the list.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value attached to the element.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_list_index_.listnode.html" class="tsd-signature-type">ListNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>The added element.</p>
 						</li>
 					</ul>
 				</section>
@@ -436,6 +564,12 @@
 					</li>
 					<li class="current tsd-kind-module">
 						<a href="../modules/_list_index_.html">&quot;list/index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_queue_queue_.html">&quot;queue/queue&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_stack_stack_.html">&quot;stack/stack&quot;</a>
 					</li>
 				</ul>
 			</nav>

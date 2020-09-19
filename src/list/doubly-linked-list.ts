@@ -8,6 +8,11 @@ import type {
 
 type DLLNode<T> = DoublyLinkedListNode<T>
 
+/**
+ * DoublyLinkedListNode carries a value and keeps reference of the
+ * previous and the next node. It also stores a reference to the `List`
+ * it belongs to for checking purposes.
+ */
 class DoublyLinkedListNode<T> implements ListNode<T> {
     value: T
     prev?: DLLNode<T>
@@ -27,6 +32,10 @@ class DoublyLinkedListNode<T> implements ListNode<T> {
     }
 }
 
+/**
+ * Doubly Linked List implementation with basic operations. It also features
+ * some higher order methods, such as `map` `filter` `reduce`.
+ */
 class DoublyLinkedList<T> implements List<T> {
     length: number = 0
     head?: DLLNode<T>
