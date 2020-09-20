@@ -47,8 +47,6 @@ class Queue<T> implements CappedStructure {
      */
     @guardOverflow(false, -1)
     public enqueue(value: T): number {
-        // if (this.overflow()) return -1
-
         const node = new QueueNode(value)
 
         if (!this.first) this.first = node
@@ -68,10 +66,6 @@ class Queue<T> implements CappedStructure {
         this.first = this.first.next
         return --this.length
     }
-
-    // private overflow() {
-    //     return this.length === this.capacity
-    // }
 }
 
 export default Queue
