@@ -14,9 +14,9 @@ class StackNode<T> {
 }
 
 /**
- * Stack implementation based on a linked list. Its eleents are managed
- * by two methods `push` and `pop`. It also features an optional capacity
- * to handle overflows.
+ * Stack implementation based on a linked list. Its elements are managed
+ * by two methods `push` and `pop`. It implements the CappedStructure
+ * interface to handle overflow of a `capacity` is set.
  */
 class Stack<T> implements CappedStructure {
     length = 0

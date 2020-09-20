@@ -3,6 +3,9 @@ import {
     guardOverflow,
 } from '../_shared'
 
+/**
+ * Represents an element of a `Queue`, wrapping a given value.
+ */
 class QueueNode<T> {
     value: T
     next?: QueueNode<T>
@@ -14,8 +17,8 @@ class QueueNode<T> {
 
 /**
  * Queue implementation based on a linked list. It has two methods
- * `enqueue` and `dequeue` to manage its elements. It also features
- * an optional capacity to handle overflows.
+ * `enqueue` and `dequeue` to manage its elements. It implements
+ * the CappedStructure interface to handle overflow of a `capacity` is set.
  */
 class Queue<T> implements CappedStructure {
     length = 0
