@@ -13,7 +13,7 @@ As a huge Go enthusiast, I must admit that working with a language that support 
 
 ## Documentation
 
-:point_right: [TypeDoc](https://gregoryalbouy.github.io/ts-datastructures)
+:point_right: [TypeDoc](https://gregoryalbouy-ts-datastructures.netlify.app)
 
 ## Todo
 

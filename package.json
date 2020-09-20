@@ -10,7 +10,7 @@
     "dist:clean": "rm -r ./dist/*",
     "lint": "npx eslint .",
     "lint:fix": "npx eslint .",
-    "docs": "typedoc --out docs src"
+    "docs": "typedoc --readme none --out docs src"
   },
   "keywords": [
     "typescript",
