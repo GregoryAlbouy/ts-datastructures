@@ -1,3 +1,8 @@
+import {
+    CappedStructure,
+    guardOverflow,
+} from '../_shared'
+
 class QueueNode<T> {
     value: T
     next?: QueueNode<T>
@@ -9,11 +14,12 @@ class QueueNode<T> {
 
 /**
  * Queue implementation based on a linked list. It has two methods
- * `enqueue` and `dequeue` to manage its elements.
+ * `enqueue` and `dequeue` to manage its elements. It also features
+ * an optional capacity to handle overflows.
  */
-class Queue<T> {
+class Queue<T> implements CappedStructure {
     length = 0
-    capacity?: number
+    capacity = -1
     first?: QueueNode<T>
     last?: QueueNode<T>
 
@@ -24,7 +30,7 @@ class Queue<T> {
      * @param capacity (optional) The maximum queue length before overflow.
      */
     constructor(capacity?: number) {
-        this.capacity = capacity
+        if (capacity && capacity > 0) this.capacity = capacity
     }
 
     /**
@@ -36,8 +42,9 @@ class Queue<T> {
      * @returns The length of the current Queue after insertion,
      * or `-1` if it failed.
      */
+    @guardOverflow(false, -1)
     public enqueue(value: T): number {
-        if (this.overflow()) return -1
+        // if (this.overflow()) return -1
 
         const node = new QueueNode(value)
 
@@ -59,9 +66,9 @@ class Queue<T> {
         return --this.length
     }
 
-    private overflow() {
-        return this.length === this.capacity
-    }
+    // private overflow() {
+    //     return this.length === this.capacity
+    // }
 }
 
 export default Queue

@@ -40,9 +40,8 @@ function Validate(
                 if (
                     parameterIndex >= args.length ||
                     args[parameterIndex] === undefined
-                ) {
+                )
                     throw new Error('Missing required argument.')
-                }
             }
         }
         return method.apply(this, args)
