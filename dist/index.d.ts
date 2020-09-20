@@ -1,2 +1,4 @@
 import { List, DoublyLinkedList } from './list';
-export { List, DoublyLinkedList, };
+import { Queue } from './queue';
+import { Stack } from './stack';
+export { List, DoublyLinkedList, Queue, Stack, };

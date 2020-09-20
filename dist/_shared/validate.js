@@ -12,9 +12,8 @@ function Validate(target, propName, descriptor) {
         if (requiredParameters) {
             for (const parameterIndex of requiredParameters) {
                 if (parameterIndex >= args.length ||
-                    args[parameterIndex] === undefined) {
+                    args[parameterIndex] === undefined)
                     throw new Error('Missing required argument.');
-                }
             }
         }
         return method.apply(this, args);

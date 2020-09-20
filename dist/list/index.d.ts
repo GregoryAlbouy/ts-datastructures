@@ -1,7 +1,7 @@
 import DoublyLinkedList from './doubly-linked-list';
 declare type ListMapper<T, U> = (currentValue: T, currentNode?: ListNode<T>, currentList?: List<T>) => U;
 declare type ListFilterer<T> = (currentValue: T, currentNode?: ListNode<T>, currentList?: List<T>) => boolean;
-declare type ListReducer<T, U> = (accumulator: U, currentValue?: T) => U;
+declare type ListReducer<T, U> = (accumulator: U, currentValue: T) => U;
 interface ListNode<T> {
     value: T;
     prev?: ListNode<T>;
