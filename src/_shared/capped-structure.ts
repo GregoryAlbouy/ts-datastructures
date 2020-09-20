@@ -1,3 +1,7 @@
+/**
+ * A CappedStructure has a `length` and a `capacity`, allowing it to use
+ * the `guardOverflow` decorator on insertion methods to prevent overflow.
+ */
 interface CappedStructure {
     length: number
     capacity: number
