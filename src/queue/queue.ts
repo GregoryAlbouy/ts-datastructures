@@ -21,19 +21,34 @@ class QueueNode<T> {
  * the CappedStructure interface to handle overflow of a `capacity` is set.
  */
 class Queue<T> implements CappedStructure {
-    length = 0
-    capacity = -1
-    first?: QueueNode<T>
-    last?: QueueNode<T>
+    public length = 0
+    public capacity = -1
+    private _first?: QueueNode<T>
+    private _last?: QueueNode<T>
 
     /**
      * Constructor takes an optional `capacity` parameter. If set,
      * the Queue won't accept new elements when the lengths reaches the
      * capacity, until it is dequeued.
-     * @param capacity (optional) The maximum queue length before overflow.
+
+     * @param capacity The maximum queue length before overflow.
      */
     constructor(capacity?: number) {
         if (capacity && capacity > 0) this.capacity = capacity
+    }
+
+    /**
+     * Returns the first element.
+     */
+    public first() {
+        return this._first
+    }
+
+    /**
+     * Returns the last element.
+     */
+    public last() {
+        return this._last
     }
 
     /**
@@ -49,9 +64,9 @@ class Queue<T> implements CappedStructure {
     public enqueue(value: T): number {
         const node = new QueueNode(value)
 
-        if (!this.first) this.first = node
-        if (this.last) this.last.next = node
-        this.last = node
+        if (!this._first) this._first = node
+        if (this._last) this._last.next = node
+        this._last = node
         return ++this.length
     }
 
@@ -61,9 +76,9 @@ class Queue<T> implements CappedStructure {
      * @returns The length of the list after removal, or `-1` if already empty.
      */
     public dequeue(): number {
-        if (!this.first) return 0
-        if (!this.first.next) this.last = undefined
-        this.first = this.first.next
+        if (!this._first) return 0
+        if (!this._first.next) this._last = undefined
+        this._first = this._first.next
         return --this.length
     }
 }
