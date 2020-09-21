@@ -23,3 +23,5 @@ rules:
     'asyncArrow': 'always'
   }]
   no-use-before-define: 'off' # False-positives with TypeScript type definitions
+  no-unused-vars: 'off' # False-positives with TypeScript
+  '@typescript-eslint/no-unused-vars': ['error']
