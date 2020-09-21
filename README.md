@@ -10,6 +10,7 @@ As a huge Go enthusiast, I must admit that working with a language that support 
 * Doubly Linked List
 * Queue
 * Stack
+* Binary Search Tree (Todo: documentation) 
 
 ## Documentation
 

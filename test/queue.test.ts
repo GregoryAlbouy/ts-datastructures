@@ -22,7 +22,7 @@ describe('Queue', () => {
     })
 
     it('dequeue', function() {
-        let value: string
+        let value: string | undefined
 
         const queue = new Queue<string>()
         queue.enqueue('one')

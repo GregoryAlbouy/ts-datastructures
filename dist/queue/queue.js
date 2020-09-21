@@ -20,22 +20,30 @@ class Queue {
         if (capacity && capacity > 0)
             this.capacity = capacity;
     }
+    first() {
+        return this._first;
+    }
+    last() {
+        return this._last;
+    }
     enqueue(value) {
         const node = new QueueNode(value);
-        if (!this.first)
-            this.first = node;
-        if (this.last)
-            this.last.next = node;
-        this.last = node;
+        if (!this._first)
+            this._first = node;
+        if (this._last)
+            this._last.next = node;
+        this._last = node;
         return ++this.length;
     }
     dequeue() {
-        if (!this.first)
-            return 0;
-        if (!this.first.next)
-            this.last = undefined;
-        this.first = this.first.next;
-        return --this.length;
+        if (!this._first)
+            return undefined;
+        if (!this._first.next)
+            this._last = undefined;
+        const value = this._first.value;
+        this._first = this._first.next;
+        this.length--;
+        return value;
     }
 }
 __decorate([

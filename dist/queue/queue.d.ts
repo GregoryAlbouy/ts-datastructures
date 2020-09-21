@@ -7,10 +7,12 @@ declare class QueueNode<T> {
 declare class Queue<T> implements CappedStructure {
     length: number;
     capacity: number;
-    first?: QueueNode<T>;
-    last?: QueueNode<T>;
+    private _first?;
+    private _last?;
     constructor(capacity?: number);
+    first(): QueueNode<T> | undefined;
+    last(): QueueNode<T> | undefined;
     enqueue(value: T): number;
-    dequeue(): number;
+    dequeue(): T | undefined;
 }
 export default Queue;

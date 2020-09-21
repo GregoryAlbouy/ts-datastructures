@@ -1,3 +1,10 @@
+import type {
+    CompareFunction,
+    FilterFunction,
+    MapFunction,
+    ReduceFunction,
+} from './types'
+
 import {
     Required,
     Validate,
@@ -5,6 +12,13 @@ import {
 import CappedStructure, {
     guardOverflow,
 } from './capped-structure'
+
+export type {
+    CompareFunction,
+    FilterFunction,
+    MapFunction,
+    ReduceFunction,
+}
 
 export {
     Required,
