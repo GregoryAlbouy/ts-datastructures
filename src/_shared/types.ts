@@ -7,7 +7,7 @@ type MapFunction<T, U> =
     (currentValue: T) => U
 
 type ReduceFunction<T, U> =
-    (accumulator: U, currentValue: T) => any
+    (accumulator: U, currentValue: T) => U
 
 export type {
     CompareFunction,
