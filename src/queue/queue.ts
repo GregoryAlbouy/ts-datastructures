@@ -80,6 +80,7 @@ class Queue<T> implements CappedStructure {
         if (!this._first.next) this._last = undefined
         const value = this._first.value
         this._first = this._first.next
+        this.length--
         return value
     }
 }
