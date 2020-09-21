@@ -29,6 +29,14 @@ describe('binary search tree', function() {
         expect(DFSPostOrder).toStrictEqual([-15, -5, -10, 5, 15, 10, 0])
     })
 
+    it('compare function', function() {
+        const reversedOrder = (a: number, b: number) =>
+            a - b < 0 ? 1 : a - b > 0 ? -1 : 0
+        const tree = getTestTree().setCompareFunction(reversedOrder)
+
+        expect(tree.toArray(TraverseMethod.DFSInOrder)).toStrictEqual([15, 10, 5, 0, -5, -10, -15])
+    })
+
     it('filter', function() {
         const tree = getTestTree()
         const copy = getTestTree()

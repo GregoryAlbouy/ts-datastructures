@@ -28,7 +28,7 @@ class BinarySearchTreeNode<T> {
     }
 
     hasChild(direction: -1 | 1) {
-        return direction === -1 ? !!this.left : !!this.right
+        return !!this.getChild(direction)
     }
 
     getChild(direction: -1 | 1) {
@@ -63,10 +63,14 @@ class BinarySearchTree<T> {
         return this._root
     }
 
-    public setCompareFunction(compareFunction: CompareFunction<T>) {
+    public setCompareFunction(compareFunction: CompareFunction<T>): BinarySearchTree<T> {
         this.compare = compareFunction
 
-        // TODO: rebuild tree based on the new compare function
+        // rebuild tree according to the new compare function
+        const values = this.toArray(TraverseMethod.DFSPreOrder)
+        this.clear()
+        values.forEach(this.insert.bind(this))
+        return this
     }
 
     public setDefaultTraverseMethod(traverseMethod: TraverseMethod) {
@@ -95,6 +99,10 @@ class BinarySearchTree<T> {
         }
 
         return false // this is never reached
+    }
+
+    public clear() {
+        this._root = undefined
     }
 
     public toArray(traverseMethod: TraverseMethod = this.defaultTraverseMethod): T[] {
