@@ -73,13 +73,14 @@ class Queue<T> implements CappedStructure {
     /**
      * Removes the first element of the list.
      *
-     * @returns The length of the list after removal, or `-1` if already empty.
+     * @returns The value of the element removed.
      */
-    public dequeue(): number {
-        if (!this._first) return 0
+    public dequeue(): T | undefined {
+        if (!this._first) return undefined
         if (!this._first.next) this._last = undefined
+        const value = this._first.value
         this._first = this._first.next
-        return --this.length
+        return value
     }
 }
 

@@ -22,20 +22,29 @@ describe('Queue', () => {
     })
 
     it('dequeue', function() {
-        const queue = new Queue()
+        let value: string
+
+        const queue = new Queue<string>()
         queue.enqueue('one')
         queue.enqueue('two')
 
-        let value = queue.dequeue()
+        value = queue.dequeue()
 
-        expect(value).toEqual(1)
+        expect(value).toEqual('one')
         expect(queue.length).toEqual(1)
         expect(queue.first()!.value).toEqual('two')
         expect(queue.first()).toStrictEqual(queue.last())
 
         value = queue.dequeue()
 
-        expect(value).toEqual(0)
+        expect(value).toEqual('two')
+        expect(queue.length).toEqual(0)
+        expect(queue.first()).toBeUndefined()
+        expect(queue.last()).toBeUndefined()
+
+        value = queue.dequeue()
+
+        expect(value).toBeUndefined()
         expect(queue.length).toEqual(0)
         expect(queue.first()).toBeUndefined()
         expect(queue.last()).toBeUndefined()
