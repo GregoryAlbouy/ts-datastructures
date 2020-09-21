@@ -11,7 +11,7 @@ parserOptions:
   sourceType: module
 plugins:
   - '@typescript-eslint'
-ignorePatterns: ['dist/**/*', docs/**/*]
+ignorePatterns: [dist/**/*, docs/**/*]
 rules:
   indent: ['error', 4]
   comma-dangle: ['error', 'always-multiline']
@@ -23,5 +23,5 @@ rules:
     'asyncArrow': 'always'
   }]
   no-use-before-define: 'off' # False-positives with TypeScript type definitions
-  no-unused-vars: 'off' # False-positives with TypeScript
+  no-unused-vars: 'off' # False-positives with TypeScript enum
   '@typescript-eslint/no-unused-vars': ['error']
