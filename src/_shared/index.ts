@@ -5,10 +5,6 @@ import type {
     ReduceFunction,
 } from './types'
 
-import {
-    Required,
-    Validate,
-} from './validate'
 import CappedStructure, {
     guardOverflow,
 } from './capped-structure'
@@ -21,8 +17,6 @@ export type {
 }
 
 export {
-    Required,
-    Validate,
     CappedStructure,
     guardOverflow,
 }
