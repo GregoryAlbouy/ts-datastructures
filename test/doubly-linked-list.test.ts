@@ -87,7 +87,7 @@ describe('doubly linked list', () => {
         list.shift()
     })
 
-    it('insertBefore/insertAfter', function() {
+    it('insertBefore insertAfter', function() {
         const list = newTestList()
         const
             p0 = list.push('zero'),
@@ -104,6 +104,20 @@ describe('doubly linked list', () => {
         expect(p1.prev).toStrictEqual(p0)
         expect(p2.prev).toStrictEqual(p1)
         expect(p3.prev).toStrictEqual(p2)
+    })
+
+    it('getters', function() {
+        const list = newTestList(10, 10, 5, -5, -10, 10)
+
+        expect(list.has(-5)).toEqual(true)
+        expect(list.has(42)).toEqual(false)
+
+        expect(list.get(5)!.next!.value).toEqual(-5)
+        expect(list.get(42)).toBeFalsy()
+
+        expect(list.getAll(10).length).toEqual(3)
+        expect(list.getAll(10)[2].prev!.value).toEqual(-10)
+        expect(list.getAll(42)).toStrictEqual([])
     })
 
     it('toArray', function() {
