@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls",
+    "test:cov": "jest --coverage",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "prebuild": "npm test && npm run lint && npm run dist:clean",
     "build": "tsc",
     "dist:clean": "rm -r ./dist/*",
