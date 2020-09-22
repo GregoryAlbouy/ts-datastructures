@@ -1,7 +1,8 @@
 module.exports = {
     preset: 'ts-jest',
     testEnvironment: 'node',
-    coverageDirectory: 'test/_coverage',
+    coverageDirectory: 'test/.coverage',
+    coverageReporters: ['lcov'],
     coverageThreshold: {
         global: {
             branches: 80,
