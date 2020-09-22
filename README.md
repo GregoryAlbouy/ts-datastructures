@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/GregoryAlbouy/ts-datastructures.svg?branch=master)](https://travis-ci.org/GregoryAlbouy/ts-datastructures)
+[![Coverage Status](https://coveralls.io/repos/github/GregoryAlbouy/ts-datastructures/badge.svg?branch=master)](https://coveralls.io/github/GregoryAlbouy/ts-datastructures?branch=ci)
+
 # TypeScript Datastructures
 
 _Work in progress_
