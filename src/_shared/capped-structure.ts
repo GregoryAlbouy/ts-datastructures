@@ -17,12 +17,15 @@ interface CappedStructure {
  * @param returnValue The value to be returned in case of overflow, if `throwError`
  * is set to `false` (it is ignored otherwise)
  */
-function guardOverflow(throwError: boolean, returnValue: any) {
+function guardOverflow(throwError: boolean, returnValue?: any) {
     return (target: Object, methodName: string, descriptor: PropertyDescriptor) => {
         const method = descriptor.value
 
         descriptor.value = function(this: CappedStructure, ...args: any): typeof returnValue {
-            if (this.length !== this.capacity) return method.apply(this, args)
+            if (!this.capacity ||
+                this.capacity < 0 ||
+                this.length < this.capacity
+            ) return method.apply(this, args)
 
             if (throwError)
                 throw new Error(`${target}.${methodName}: insertion aborted (limit of ${this.length} reached)`)
