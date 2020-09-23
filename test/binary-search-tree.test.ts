@@ -27,6 +27,11 @@ describe('binary search tree', function() {
         expect(DFSPreOrder).toStrictEqual([0, -10, -15, -5, 10, 5, 15])
         expect(DFSInOrder).toStrictEqual([-15, -10, -5, 0, 5, 10, 15])
         expect(DFSPostOrder).toStrictEqual([-15, -5, -10, 5, 15, 10, 0])
+
+        // default traverse method
+        expect(tree.toArray()).toStrictEqual(tree.toArray(TraverseMethod.DFSPreOrder))
+        tree.setDefaultTraverseMethod(TraverseMethod.DFSInOrder)
+        expect(tree.toArray()).toStrictEqual(tree.toArray(TraverseMethod.DFSInOrder))
     })
 
     it('compare function', function() {

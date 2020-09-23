@@ -88,7 +88,7 @@ class BinarySearchTree<T> {
         for (let currentNode: PotentialBSTNode<T> = this._root; currentNode;) {
             const direction = this.compare(value, currentNode.value)
 
-            if (!direction) return false
+            if (direction === 0) break
 
             if (!currentNode.hasChild(direction)) {
                 currentNode.setChild(direction, newNode)
@@ -98,7 +98,7 @@ class BinarySearchTree<T> {
             currentNode = currentNode.getChild(direction)
         }
 
-        return false // this is never reached
+        return false
     }
 
     public clear() {
