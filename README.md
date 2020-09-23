@@ -12,11 +12,11 @@ As a huge Go enthusiast, I must admit that working with a language that support 
 
 Aside from providing ready-to-use and functionnal data structures, this project is also a pretext for the student developer I am to learn or practice many aspects of the development process:
 
-* :office: Understanding data structures
-* :vertical_traffic_light: Keeping clean code and good coding practices
-* :white_check_mark: Making relevant tests with high coverage rate
-* :arrows_counterclockwise: Using Continuous Integration tools
-* :blue_book: Maintaining a full documentation
+:office: Understanding data structures
+:vertical_traffic_light: Keeping clean code and good coding practices
+:white_check_mark: Making relevant tests with high coverage rate
+:arrows_counterclockwise: Using Continuous Integration tools
+:blue_book: Maintaining a full documentation
 
 
 ## Implemented
