@@ -21,11 +21,11 @@ Aside from providing ready-to-use and functionnal data structures, this project 
 
 ## Implemented
 
-* [Doubly Linked List](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_list_doubly_linked_list_.doublylinkedlist.html)
-* [Queue](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_queue_queue_.queue.html)
-* [Stack](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_stack_stack_.stack.html)
-* [Binary Search Tree](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_tree_binary_search_tree_.binarysearchtree.html)
-* Graph *in progress*
+* [Doubly Linked List](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_list_doubly_linked_list_.doublylinkedlist.html)  
+* [Queue](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_queue_queue_.queue.html)  
+* [Stack](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_stack_stack_.stack.html)  
+* [Binary Search Tree](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_tree_binary_search_tree_.binarysearchtree.html)  
+* Graph *in progress*  
 
 ## Documentation
 
