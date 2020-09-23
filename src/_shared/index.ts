@@ -3,6 +3,11 @@ import type {
     FilterFunction,
     MapFunction,
     ReduceFunction,
+    TraverseCallback,
+} from './types'
+
+import {
+    TraverseMethod,
 } from './types'
 
 import CappedStructure, {
@@ -14,9 +19,11 @@ export type {
     FilterFunction,
     MapFunction,
     ReduceFunction,
+    TraverseCallback,
 }
 
 export {
     CappedStructure,
     guardOverflow,
+    TraverseMethod,
 }
