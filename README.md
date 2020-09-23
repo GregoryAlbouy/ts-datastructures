@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/GregoryAlbouy/ts-datastructures.svg?branch=master)](https://travis-ci.org/GregoryAlbouy/ts-datastructures)
-[![Coverage Status](https://coveralls.io/repos/github/GregoryAlbouy/ts-datastructures/badge.svg?branch=master)](https://coveralls.io/github/GregoryAlbouy/ts-datastructures?branch=ci)
+[![Coverage Status](https://coveralls.io/repos/github/GregoryAlbouy/ts-datastructures/badge.svg?branch=master)](https://coveralls.io/github/GregoryAlbouy/ts-datastructures?branch=master)
 
 # TypeScript Datastructures
 
@@ -13,7 +13,8 @@ As a huge Go enthusiast, I must admit that working with a language that support 
 * Doubly Linked List
 * Queue
 * Stack
-* Binary Search Tree (Todo: documentation) 
+* Binary Search Tree (Todo: documentation)
+* Graph *in progress*
 
 ## Documentation
 
