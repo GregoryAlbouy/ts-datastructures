@@ -3,7 +3,7 @@
     "target": "es2019", // Optional chaining not working with es2020+
     "module": "es2020",
     "declaration": true,
-    "outDir": "./dist",
+    "outDir": "./dist2",
     "rootDir": "./src",
     "removeComments": true,
     "moduleResolution": "node",
@@ -16,9 +16,9 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "forceConsistentCasingInFileNames": true 
+    "forceConsistentCasingInFileNames": true ,
   },
   "include": [
-    "./src/**/*"
-  ]
+    "./src/**/*",
+  ],
 }
