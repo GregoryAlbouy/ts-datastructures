@@ -10,7 +10,9 @@ As a huge Go enthusiast, I must admit that working with a language that support 
 
 ## About
 
-Aside from providing ready-to-use and functionnal data structures, this project is also a pretext for the student developer I am to learn or practice many aspects of the development process:
+This package provides ready-to-use and functionnal data structures. It includes linked lists, queues, stack, binary heaps and I intent to implement a lot more.
+
+This project is also a pretext for the student developer I am to learn or practice many aspects of the development process:
 
 - :office: Understanding data structures
 - :vertical_traffic_light: Keeping clean code and good coding practices
