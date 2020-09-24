@@ -53,6 +53,5 @@ const tree = new BinarySearchTree()
 
 ## Todo
 
-- Build npm package
 - More data structures
 - Benchmarks
