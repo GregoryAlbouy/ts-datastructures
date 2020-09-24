@@ -1,5 +1,5 @@
 {
-  "name": "@gregoryalbouy/ts-datastructures",
+  "name": "ts-structures",
   "version": "0.1.2",
   "description": "TypeScript implementation of common data structures",
   "main": "index.js",

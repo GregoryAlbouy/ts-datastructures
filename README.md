@@ -23,7 +23,7 @@ This project is also a pretext for the student developer I am to learn or practi
 ## Usage
 
 ```console
-npm i ts-datastructures
+npm i ts-structures
 ```
 
 ```typescript
@@ -33,7 +33,7 @@ const {
     Stack,
     BinarySearchTree,
     //Graph,
-} = require('ts-datastructures')
+} = require('ts-structures')
 
 const tree = new BinarySearchTree()
 // ...
