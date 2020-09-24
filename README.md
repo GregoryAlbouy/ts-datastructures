@@ -8,7 +8,7 @@
 _Work in progress_
 
 Implementation of common data structures, TypeScript pendant of my [go-datastructures repo](https://github.com/gregoryalbouy/go-datastructures).
-(As a huge Go enthusiast, I must admit that working with a language that support Generics is quite a relieffor this kind of work)
+(As a huge Go enthusiast, I must admit that working with a language that support Generics is quite a relief for this kind of work)
 
 ## About
 
