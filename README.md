@@ -2,15 +2,16 @@
 
 [![Build Status](https://travis-ci.org/GregoryAlbouy/ts-datastructures.svg?branch=master)](https://travis-ci.org/GregoryAlbouy/ts-datastructures)
 [![Coverage Status](https://coveralls.io/repos/github/GregoryAlbouy/ts-datastructures/badge.svg?branch=master)](https://coveralls.io/github/GregoryAlbouy/ts-datastructures?branch=master)
+[![NPM version](https://img.shields.io/npm/v/ts-structures)](https://www.npmjs.org/package/ts-structures)
 
 _Work in progress_
 
 Implementation of common data structures, TypeScript pendant of my [go-datastructures repo](https://github.com/gregoryalbouy/go-datastructures).
-As a huge Go enthusiast, I must admit that working with a language that support Generics is quite a relief. (Can't wait for Go to implement them!)
+(As a huge Go enthusiast, I must admit that working with a language that support Generics is quite a relieffor this kind of work)
 
 ## About
 
-This package provides ready-to-use and functionnal data structures. It includes linked lists, queues, stack, binary heaps and I intent to implement a lot more.
+The package provides ready-to-use and functionnal data structures. It includes linked lists, queues, stack, binary heaps and I intent to implement a lot more.
 
 This project is also a pretext for the student developer I am to learn or practice many aspects of the development process:
 
