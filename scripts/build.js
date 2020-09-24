@@ -1,5 +1,3 @@
-'use strict'
-
 const copyStatics = require('./copy-statics')
 const clearPackageDirectory = require('./clear-package-directory')
 const compile = require('./compile')
