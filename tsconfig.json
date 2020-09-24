@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2019", // Optional chaining not working with es2020+
+    "target": "es5",
     "module": "es2020",
     "declaration": true,
     "outDir": "./package",
