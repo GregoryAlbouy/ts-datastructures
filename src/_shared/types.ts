@@ -40,8 +40,8 @@ type TraverseCallback<T> = (currentValue: T) => any
  * Methods of traversal of a tree or graph. Used in structures methods
  * that require traversal when the order matters.
  * Usage example:
- *  myTree.toArray(TraverseMethod.DFSPreOrder) -> [0, -10, 10]
- *  myTree.toArray(TraverseMethod.DFSInOrder) -> [-10, 0, 10]
+ *  myTree.toArray(TraverseMethod.DFSPreOrder) -\> [0, -10, 10]
+ *  myTree.toArray(TraverseMethod.DFSInOrder) -\> [-10, 0, 10]
  */
 enum TraverseMethod {
     BFS,

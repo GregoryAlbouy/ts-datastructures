@@ -11,6 +11,7 @@ parserOptions:
   sourceType: module
 plugins:
   - '@typescript-eslint'
+  - eslint-plugin-tsdoc
 ignorePatterns: [package/**/*, docs/**/*]
 rules:
   indent: ['error', 4]
@@ -25,3 +26,5 @@ rules:
   no-use-before-define: 'off' # False-positives with TypeScript type definitions
   no-unused-vars: 'off' # False-positives with TypeScript enum
   '@typescript-eslint/no-unused-vars': ['error']
+  tsdoc/syntax: 'warn'
+  strict: ['error', 'global']

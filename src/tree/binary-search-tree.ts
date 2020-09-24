@@ -32,7 +32,7 @@ class BinarySearchTreeNode<T> {
      * for convenience, as it is the direct result of the `CompareFunction`.
      * Case `0` is not treated as it is considered already checked.
      *
-     * @param direction `-1` (left) / `1` (right).
+     * @param direction - `-1` (left) / `1` (right).
      * @returns `true` / `false`.
      */
     public hasChild(direction: -1 | 1) {
@@ -47,7 +47,7 @@ class BinarySearchTreeNode<T> {
      * for convenience, as it is the direct result of the `CompareFunction`.
      * Case `0` is not treated as it is considered already checked.
      *
-     * @param direction `-1` (left) / `1` (right).
+     * @param direction - `-1` (left) / `1` (right).
      * @returns a child `BinarySearchTreeNode` or `undefined`.
      */
     public getChild(direction: -1 | 1) {
@@ -57,8 +57,8 @@ class BinarySearchTreeNode<T> {
     /**
      * Sets the current node's child in the given direction.
      *
-     * @param direction `-1` (left) / `1` (right).
-     * @param newNode The new Child.
+     * @param direction - `-1` (left) / `1` (right).
+     * @param newNode - The new Child.
      */
     public setChild(direction: -1 | 1, newNode: BinarySearchTreeNode<T>) {
         direction === -1 ? this.left = newNode : this.right = newNode
@@ -69,8 +69,7 @@ class BinarySearchTreeNode<T> {
  * A Binary Search Tree implementation that accepts any kind of data,
  * including arrays or plain objects. To do so, it must be provided
  * a custom `compareFunction` that will be used to determine the position
- * of the elements instead of the default '<', '>', '===' comparison
- * operators.
+ * of the elements instead of the default comparison operators.
  */
 class BinarySearchTree<T> {
     private _root?: BinarySearchTreeNode<T>
@@ -81,9 +80,9 @@ class BinarySearchTree<T> {
      * By default, it compares numbers so it must be replaced with a custom
      * function when storing another data type.
      *
-     * @param a Element A
-     * @param b Element B
-     * @return `-1` if a < b, `1` if a > b, `0` if a === b
+     * @param a - Element A
+     * @param b - Element B
+     * @returns `-1` if a \< b, `1` if a \> b, `0` if a === b
      */
     private compare: CompareFunction<T> =
         (a: T, b: T) => a < b ? -1 : a > b ? 1 : 0
@@ -104,7 +103,7 @@ class BinarySearchTree<T> {
      * - `TraverseMethod.DFSInOrder` / `2` (Depth First Search In Order)
      * - `TraverseMethod.DFSPostOrder` / `3` (Depth First Search Post Order)
      *
-     * @default`TraverseMethod.DFSPreOrder`
+     * @defaultValue {@link TraverseMethod | TraverseMethod.DFSPreOrder}
      */
     public defaultTraverseMethod: TraverseMethod = TraverseMethod.DFSPreOrder
 
@@ -112,7 +111,7 @@ class BinarySearchTree<T> {
      * Constructor takes an optional parameter `compareFunction` to replace
      * the default comparison function.
      *
-     * @param compareFunction The function used to compare two values.
+     * @param compareFunction - The function used to compare two values.
      */
     constructor(compareFunction?: CompareFunction<T>) {
         if (compareFunction) this.compare = compareFunction
@@ -134,7 +133,7 @@ class BinarySearchTree<T> {
      *
      * To keep its integrity, the tree is fully rebuilt.
      *
-     * @param compareFunction The function to use to compare two values.
+     * @param compareFunction - The function to use to compare two values.
      * @returns The tree instance.
      */
     public setCompareFunction(compareFunction: CompareFunction<T>): BinarySearchTree<T> {
@@ -156,7 +155,7 @@ class BinarySearchTree<T> {
      * - `TraverseMethod.DFSInOrder` / `2` (Depth First Search In Order)
      * - `TraverseMethod.DFSPostOrder` / `3` (Depth First Search Post Order)
      *
-     * @param traverseMethod The default traverse method to use.
+     * @param traverseMethod - The default traverse method to use.
      */
     public setDefaultTraverseMethod(traverseMethod: TraverseMethod) {
         this.defaultTraverseMethod = traverseMethod
@@ -166,7 +165,7 @@ class BinarySearchTree<T> {
      * Inserts a new value to the tree.
      * Note: the structure does not accept duplicates.
      *
-     * @param value The value to insert
+     * @param value - The value to insert
      * @returns `true` if succeeded, `false`otherwise
      */
     public insert(value: T): boolean {
@@ -204,7 +203,7 @@ class BinarySearchTree<T> {
      * Returns an array of the stored values. The order depends on the
      * `TraverseMethod` used.
      *
-     * @param traverseMethod The `TraverseMethod` to use.
+     * @param traverseMethod - The `TraverseMethod` to use.
      */
     public toArray(traverseMethod: TraverseMethod = this.defaultTraverseMethod): T[] {
         const reduceFunction = (values: T[], value: T) => {
@@ -220,10 +219,10 @@ class BinarySearchTree<T> {
      * to the given `MapFunction`. A new tree is returned, the current one is
      * unaltered.
      *
-     * @param mapFunction The function describing the transformation to apply
+     * @param mapFunction - The function describing the transformation to apply
      * on each value.
-     * @param traverseMethod The `TraverseMethod` to use.
-     * @param newCompareFunction The compare function of the new tree.
+     * @param traverseMethod - The `TraverseMethod` to use.
+     * @param newCompareFunction - The compare function of the new tree.
      * Default is set to the compare function of the current tree.
      * It is **necessary** if the map function changes the values data type.
      * @returns The resulting tree.
@@ -247,8 +246,8 @@ class BinarySearchTree<T> {
      * Creates a new tree with the filtered values of the current one,
      * using the input `filterFunction`. Current tree is unaltered.
      *
-     * @param filterFunction The `FilterFunction` to use.
-     * @param traverseMethod The `TraverseMethod` to use.
+     * @param filterFunction - The `FilterFunction` to use.
+     * @param traverseMethod - The `TraverseMethod` to use.
      * @returns The resulting tree.
      */
     public filter(
@@ -271,9 +270,9 @@ class BinarySearchTree<T> {
      * Computes and return a single value from the values of the tree,
      * using the input `ReduceFunction`.
      *
-     * @param reduceFunction The `ReduceFunction` to use.
-     * @param initialValue The initial value of the accumulator
-     * @param traverseMethod The `TraverseMethod` to use.
+     * @param reduceFunction - The `ReduceFunction` to use.
+     * @param initialValue - The initial value of the accumulator
+     * @param traverseMethod - The `TraverseMethod` to use.
      * @returns The accumulated value at the end of traversal.
      */
     public reduce<U>(
@@ -298,8 +297,8 @@ class BinarySearchTree<T> {
      * starting from the given root. The given callback is executed
      * on each value.
      *
-     * @param root The traversal starting point
-     * @param callback A callback to execute on each value.
+     * @param root - The traversal starting point
+     * @param callback - A callback to execute on each value.
      */
     private traverseBFS(root: BinarySearchTreeNode<T>, callback: TraverseCallback<T>) {
         if (!root) return
@@ -326,9 +325,9 @@ class BinarySearchTree<T> {
      * This method gathers all DFS order methods into one, applying the callback
      * at the right moment depending on `order` parameter.
      *
-     * @param order The `TraverseMethod` to use, `TraverseMethod.BFS` excluded.
-     * @param currentNode The element being traversed.
-     * @param callback The callback to execute on each value.
+     * @param order - The `TraverseMethod` to use, `TraverseMethod.BFS` excluded.
+     * @param currentNode - The element being traversed.
+     * @param callback - The callback to execute on each value.
      */
     private traverseDFS(
         order: Exclude<TraverseMethod, TraverseMethod.BFS>,
@@ -345,8 +344,8 @@ class BinarySearchTree<T> {
     /**
      * Traverses the tree using DFS PreOrder method and applies a callback
      * on each value.
-     * @param root The starting point of the traversal.
-     * @param callback The callback to execute on each value.
+     * @param root - The starting point of the traversal.
+     * @param callback - The callback to execute on each value.
      */
     private traversePreOrder(root: BinarySearchTreeNode<T>, callback: TraverseCallback<T>) {
         this.traverseDFS(TraverseMethod.DFSPreOrder, root, callback)
@@ -355,8 +354,8 @@ class BinarySearchTree<T> {
     /**
      * Traverses the tree using DFS InOrder method and applies a callback
      * on each value.
-     * @param root The starting point of the traversal.
-     * @param callback The callback to execute on each value.
+     * @param root - The starting point of the traversal.
+     * @param callback - The callback to execute on each value.
      */
     private traverseInOrder(root: BinarySearchTreeNode<T>, callback: TraverseCallback<T>) {
         this.traverseDFS(TraverseMethod.DFSInOrder, root, callback)
@@ -365,8 +364,8 @@ class BinarySearchTree<T> {
     /**
      * Traverses the tree using DFS PostOrder method and applies a callback
      * on each value.
-     * @param root The starting point of the traversal.
-     * @param callback The callback to execute on each value.
+     * @param root - The starting point of the traversal.
+     * @param callback - The callback to execute on each value.
      */
     private traversePostOrder(root: BinarySearchTreeNode<T>, callback: TraverseCallback<T>) {
         this.traverseDFS(TraverseMethod.DFSPostOrder, root, callback)

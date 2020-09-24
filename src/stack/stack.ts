@@ -27,7 +27,7 @@ class Stack<T> implements CappedStructure {
      * Constructor takes an optional `capacity` parameter. If set,
      * the Stack won't accept new elements after the lengths reache
      * the capacity, until an element is removed.
-     * @param capacity (optional) The maximum queue length before overflow.
+     * @param capacity - The maximum queue length before overflow.
      */
     constructor(capacity?: number) {
         if (capacity && capacity > 0) this.capacity = capacity
@@ -38,7 +38,7 @@ class Stack<T> implements CappedStructure {
      * If the length already reached the (optional) capacity, push is not
      * performed and returns -1.
      *
-     * @param value The value associed to the pushed element.
+     * @param value - The value associed to the pushed element.
      * @returns The length of the current Queue after insertion,
      * or `-1` if it failed.
      */

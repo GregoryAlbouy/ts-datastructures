@@ -31,7 +31,7 @@ class Queue<T> implements CappedStructure {
      * the Queue won't accept new elements when the lengths reaches the
      * capacity, until it is dequeued.
 
-     * @param capacity The maximum queue length before overflow.
+     * @param capacity - The maximum queue length before overflow.
      */
     constructor(capacity?: number) {
         if (capacity && capacity > 0) this.capacity = capacity
@@ -56,7 +56,7 @@ class Queue<T> implements CappedStructure {
      * If the length already reached the (optional) capacity, enqueue
      * won't perform and return -1.
      *
-     * @param value The value associed to the element.
+     * @param value - The value associed to the element.
      * @returns The length of the current Queue after insertion,
      * or `-1` if it failed.
      */

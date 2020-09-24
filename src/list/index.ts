@@ -25,7 +25,7 @@ interface ListNode<T> {
 interface List<T> {
     /**
      * Adds a `ListNode` with input value at the end of the list.
-     * @param value The value attached to the element.
+     * @param value - The value attached to the element.
      * @returns The added `ListNode`.
      */
     push(value: T): ListNode<T>
@@ -38,7 +38,7 @@ interface List<T> {
 
     /**
      * Adds an element with input value at the front of the list.
-     * @param value The value attached to the element.
+     * @param value - The value attached to the element.
      * @returns The added element.
      */
     unshift(value: T): ListNode<T>
@@ -52,8 +52,8 @@ interface List<T> {
     /**
      * Inserts a value before a `ListNode`. It fails if it does not belong
      * to the list.
-     * @param value The value to be inserted.
-     * @param before The target `ListNode`.
+     * @param value - The value to be inserted.
+     * @param before - The target `ListNode`.
      * @returns The inserted `ListNode`, or `undefined` if the insertion failed.
      */
     insertBefore(value: T, before: ListNode<T>): ListNode<T> | undefined
@@ -61,29 +61,29 @@ interface List<T> {
     /**
      * Inserts a value after a `ListNode`. It fails if it does not belong
      * to the list.
-     * @param value The value to be inserted.
-     * @param after The target `ListNode`.
+     * @param value - The value to be inserted.
+     * @param after - The target `ListNode`.
      * @returns The inserted `ListNode`, or `undefined` if the insertion failed.
      */
     insertAfter(value: T, after: ListNode<T>): ListNode<T> | undefined
 
     /**
      * Checks whether a value is present in the list.
-     * @param value The tested value.
+     * @param value - The tested value.
      * @returns `true` if the value is found, `false` otherwise
      */
     has(value: T): boolean
 
     /**
      * Returns the first encountered element with matching value.
-     * @param value The tested value.
+     * @param value - The tested value.
      * @returns The first matching `ListNode`, `undefined` if no match.
      */
     get(value: T): ListNode<T> | undefined
 
     /**
      * Returns an array of all encountered elements with matching value.
-     * @param value The tested value.
+     * @param value - The tested value.
      * @returns An array of matching elements.
      */
     getAll(value: T): ListNode<T>[]
@@ -91,7 +91,7 @@ interface List<T> {
     /**
      * Applies a transformation on each element and returns a new `List`.
      * The original `List` remains unaltered.
-     * @param callback The map function.
+     * @param callback - The map function.
      * @returns The new `List`
      */
     map<U>(callback: ListMapper<T, U>): List<U>
@@ -99,7 +99,7 @@ interface List<T> {
     /**
      * Filters out elements and returns a new `List`
      * The original `Lise` remains unaltered.
-     * @param callback The filter function.
+     * @param callback - The filter function.
      * @returns The new `List`
      */
     filter(callback: ListFilterer<T>): List<T>
@@ -108,7 +108,7 @@ interface List<T> {
      * Accumulates the result of specific operation on each value and
      * returns the accumulation as a single result.
      * The original `List` remains unaltered.
-     * @param callback The filter function.
+     * @param callback - The filter function.
      * @returns The new `List`.
      */
     reduce<U>(callback: ListReducer<T, U>, initialValue: U): U

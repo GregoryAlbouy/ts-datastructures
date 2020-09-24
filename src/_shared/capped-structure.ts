@@ -13,8 +13,8 @@ interface CappedStructure {
  * an error if `throwError` parameter is set to `true`, or returns the
  * specified `returnValue` otherwise.
  *
- * @param throwError Whether it should throw an error or not in case of overflow
- * @param returnValue The value to be returned in case of overflow, if `throwError`
+ * @param throwError - Whether it should throw an error or not in case of overflow
+ * @param returnValue - The value to be returned in case of overflow, if `throwError`
  * is set to `false` (it is ignored otherwise)
  */
 function guardOverflow(throwError: boolean, returnValue?: any) {
