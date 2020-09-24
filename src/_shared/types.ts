@@ -40,13 +40,35 @@ type TraverseCallback<T> = (currentValue: T) => any
  * Methods of traversal of a tree or graph. Used in structures methods
  * that require traversal when the order matters.
  * Usage example:
- *  myTree.toArray(TraverseMethod.DFSPreOrder) -\> [0, -10, 10]
- *  myTree.toArray(TraverseMethod.DFSInOrder) -\> [-10, 0, 10]
+ *
+ *  `myTree.toArray(TraverseMethod.DFSPreOrder)` -\> [0, -10, 10]
+ *
+ *  `myTree.toArray(TraverseMethod.DFSInOrder)` -\> [-10, 0, 10]
  */
 enum TraverseMethod {
+    /**
+     * Breadth First Search: traverses all values of the same level of depth,
+     * from left to right, before moving to the next level.
+     */
     BFS,
+
+    /**
+     * Depth First Search PreOrder: for each node, traverses the current value
+     * first, then its children from left to right.
+     */
     DFSPreOrder,
+
+    /**
+     * Depth First Search InOrder: for each node, traverses the left child
+     * first, then the current value and the right child. This results in
+     * a traversal in ascending order.
+     */
     DFSInOrder,
+
+    /**
+     * Depth First Search PostOrder: for each node, traverses its children first
+     * from left to right, then the current value.
+     */
     DFSPostOrder,
 }
 
