@@ -20,6 +20,29 @@ This project is also a pretext for the student developer I am to learn or practi
 - :arrows_counterclockwise: Using Continuous Integration tools
 - :blue_book: Maintaining a full documentation
 
+## Usage
+
+```console
+npm i ts-datastructures
+```
+
+```typescript
+const {
+    DoublyLinkedList,
+    Queue,
+    Stack,
+    BinarySearchTree,
+    //Graph,
+} = require('ts-datastructures')
+
+const tree = new BinarySearchTree()
+// ...
+```
+
+## Documentation
+
+:point_right: [TypeDoc](https://gregoryalbouy-ts-datastructures.netlify.app)
+
 ## Implemented
 
 - [Doubly Linked List](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_list_doubly_linked_list_.doublylinkedlist.html)
@@ -27,10 +50,6 @@ This project is also a pretext for the student developer I am to learn or practi
 - [Stack](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_stack_stack_.stack.html)
 - [Binary Search Tree](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_tree_binary_search_tree_.binarysearchtree.html)
 - Graph *in progress*
-
-## Documentation
-
-:point_right: [TypeDoc](https://gregoryalbouy-ts-datastructures.netlify.app)
 
 ## Todo
 

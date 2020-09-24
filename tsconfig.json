@@ -3,7 +3,7 @@
     "target": "es2019", // Optional chaining not working with es2020+
     "module": "es2020",
     "declaration": true,
-    "outDir": "./dist",
+    "outDir": "./package",
     "rootDir": "./src",
     "removeComments": true,
     "moduleResolution": "node",

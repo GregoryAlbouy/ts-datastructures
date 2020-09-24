@@ -1,5 +1,6 @@
 # Ignore generated files languages
 dist/** linguist-detectable=false
+package/** linguist-detectable=false
 
 # Ignore config files
 *.config.js linguist-detectable=false
