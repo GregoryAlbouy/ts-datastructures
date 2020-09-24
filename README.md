@@ -20,7 +20,7 @@ This project is also a pretext for the student developer I am to learn or practi
 - :vertical_traffic_light: Keeping clean code and good coding practices
 - :white_check_mark: Making relevant tests with high coverage rate
 - :arrows_counterclockwise: Using Continuous Integration tools
-- :blue_book: Maintaining a full documentation
+- :blue_book: Maintaining a fully documented codebase
 
 ## Usage
 
