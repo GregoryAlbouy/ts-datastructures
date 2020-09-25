@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/GregoryAlbouy/ts-datastructures.svg?branch=master)](https://travis-ci.org/GregoryAlbouy/ts-datastructures)
 [![Coverage Status](https://coveralls.io/repos/github/GregoryAlbouy/ts-datastructures/badge.svg?branch=master)](https://coveralls.io/github/GregoryAlbouy/ts-datastructures?branch=master)
 [![NPM version](https://img.shields.io/npm/v/ts-structures)](https://www.npmjs.org/package/ts-structures)
-<!-- [![NPM downloads](https://img.shields.io/npm/dw/ts-structures)](https://www.npmjs.org/package/ts-structures) -->
+[![NPM downloads](https://img.shields.io/npm/dt/ts-structures)](https://www.npmjs.org/package/ts-structures)
 
 _Work in progress_
 
