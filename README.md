@@ -51,6 +51,7 @@ const tree = new BinarySearchTree()
 - [Queue](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_queue_queue_.queue.html)
 - [Stack](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_stack_stack_.stack.html)
 - [Binary Search Tree](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_tree_binary_search_tree_.binarysearchtree.html)
+- [Binary Heap](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_heap_binary_heap_.binaryheap.html)
 - Graph *in progress*
 
 ## Todo

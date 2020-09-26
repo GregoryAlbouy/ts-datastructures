@@ -11,6 +11,7 @@ import { DoublyLinkedList } from './list'
 import { Queue } from './queue'
 import { Stack } from './stack'
 import { BinarySearchTree } from './tree'
+import { BinaryHeap } from './heap'
 
 export type {
     CompareFunction,
@@ -26,4 +27,5 @@ export {
     Stack,
     BinarySearchTree,
     TraverseMethod,
+    BinaryHeap,
 }
