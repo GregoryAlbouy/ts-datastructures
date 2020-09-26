@@ -1,6 +1,4 @@
 module.exports = {
-    preset: 'ts-jest',
-    testEnvironment: 'node',
     coverageDirectory: 'test/.coverage',
     coverageReporters: ['lcov'],
     coverageThreshold: {
@@ -10,4 +8,7 @@ module.exports = {
             lines: 90,
         },
     },
+    preset: 'ts-jest',
+    setupFilesAfterEnv: ['./test/jest.setup.ts'],
+    testEnvironment: 'node',
 }

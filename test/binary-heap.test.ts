@@ -1,15 +1,5 @@
 import { BinaryHeap } from '../src'
 
-expect.extend({
-    toBeValidHeap: function(received) {
-        const [pass, message] = isValidHeap(received)
-            ? [true, () => `heap is valid: ${received.toArray()}`]
-            : [false, () => `heap is invalid: ${received.toArray()}`]
-
-        return { pass, message }
-    },
-})
-
 describe('binary heap', function() {
     it('insert', function() {
         const heap = new BinaryHeap()
@@ -50,20 +40,3 @@ describe('binary heap', function() {
         expect(heap).toBeValidHeap()
     })
 })
-
-function isValidHeap<T>(heap: BinaryHeap<T>) {
-    const values = heap.toArray()
-    const n = values.length
-
-    if (n === 0) return true
-
-    for (let i = 0; 2 * i + 1 < n; i++) {
-        const v = values[i]
-        const iChild = 2 * i + 1
-
-        if (iChild >= n) break
-        if (heap.sup(values[iChild], v)) return false
-    }
-
-    return true
-}
