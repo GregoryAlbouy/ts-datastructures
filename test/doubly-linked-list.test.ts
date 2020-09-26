@@ -104,6 +104,17 @@ describe('doubly linked list', () => {
         expect(p1.prev).toStrictEqual(p0)
         expect(p2.prev).toStrictEqual(p1)
         expect(p3.prev).toStrictEqual(p2)
+
+        // Edge case: insert before/after an element from another list
+
+        const strangerList = new DoublyLinkedList()
+        const stranger = strangerList.push('stranger')
+        const
+            undef0 = list.insertBefore('stranger0', stranger),
+            undef1 = list.insertAfter('stranger1', stranger)
+
+        expect(undef0).toBeUndefined()
+        expect(undef1).toBeUndefined()
     })
 
     it('getters', function() {

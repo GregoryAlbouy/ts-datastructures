@@ -45,31 +45,40 @@ describe('binary search tree', function() {
     it('filter', function() {
         const tree = getTestTree()
         const copy = getTestTree()
+        const emptyTree = new BinarySearchTree<number>()
         const filterFunction = (n: number) => n >= 0
         const newTree = tree.filter(filterFunction)
+        const newEmptyTree = emptyTree.filter(filterFunction)
 
         expect(newTree.toArray()).toStrictEqual([0, 10, 5, 15])
         expect(tree.toArray()).toStrictEqual(copy.toArray())
+        expect(newEmptyTree.toArray()).toStrictEqual([])
     })
 
     it('map', function() {
         const tree = getTestTree()
         const copy = getTestTree()
+        const emptyTree = new BinarySearchTree<number>()
         const mapFunction = (n: number) => 2 * n
         const newTree = tree.map(mapFunction)
+        const newEmptyTree = emptyTree.map(mapFunction)
 
         expect(newTree.toArray()).toStrictEqual(tree.toArray().map(mapFunction))
         expect(tree.toArray()).toStrictEqual(copy.toArray())
+        expect(newEmptyTree.toArray()).toStrictEqual([])
     })
 
     it('reduce', function() {
         const tree = getTestTree()
         const copy = getTestTree()
+        const emptyTree = new BinarySearchTree<number>()
         const reduceFunction = (acc: string, n: number) => acc + (2 * n).toString()
-        const result = tree.reduce(reduceFunction, 'youpi:')
+        const result = tree.reduce(reduceFunction, 'results:')
+        const emptyTreeResult = emptyTree.reduce(reduceFunction, 'results:')
 
-        expect(result).toStrictEqual(tree.toArray().reduce(reduceFunction, 'youpi:'))
+        expect(result).toStrictEqual(tree.toArray().reduce(reduceFunction, 'results:'))
         expect(tree.toArray()).toStrictEqual(copy.toArray())
+        expect(emptyTreeResult).toEqual('results:')
     })
 })
 
