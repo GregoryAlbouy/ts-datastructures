@@ -38,9 +38,9 @@ function readConfigFile(configFileName) {
     return configParseResult
 }
 
-function compile(buildPath) {
+function compile(buildPath, configFile = 'tsconfig.json') {
     // Extract configuration from config file
-    const { fileNames, options } = readConfigFile('tsconfig.json')
+    const { fileNames, options } = readConfigFile(configFile)
 
     if (buildPath) options.outDir = buildPath
 

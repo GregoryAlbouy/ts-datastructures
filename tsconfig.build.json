@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "es5",
+    "outDir": "./package",
+    "rootDir": "./src",
+    "declaration": true
+  },
+  "exclude": [
+    "./test/**/*"
+  ],
+}

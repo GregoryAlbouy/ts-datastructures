@@ -2,12 +2,8 @@
   "compilerOptions": {
     "target": "es5",
     "module": "es2020",
-    "declaration": true,
-    "outDir": "./package",
-    "rootDir": "./src",
     "removeComments": true,
     "moduleResolution": "node",
-    // "isolatedModules": true,
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -16,9 +12,11 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "forceConsistentCasingInFileNames": true ,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true
   },
   "include": [
     "./src/**/*",
+    "./test/**/*"
   ],
 }

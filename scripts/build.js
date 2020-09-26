@@ -3,11 +3,12 @@ const clearPackageDirectory = require('./clear-package-directory')
 const compile = require('./compile')
 
 const PATH = process.env.BUILD_PATH || './package'
+const TS_CONFIG = 'tsconfig.build.json'
 
-function build(path) {
+function build(path, tsconfig) {
     clearPackageDirectory(path)
     copyStatics(path)
-    compile(path)
+    compile(path, tsconfig)
 }
 
-build(PATH)
+build(PATH, TS_CONFIG)
