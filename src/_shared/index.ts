@@ -1,5 +1,13 @@
 import type {
+    Comparer,
     CompareFunction,
+} from './comparer'
+
+import {
+    compareMethods,
+} from './comparer'
+
+import type {
     FilterFunction,
     MapFunction,
     ReduceFunction,
@@ -15,6 +23,7 @@ import CappedStructure, {
 } from './capped-structure'
 
 export type {
+    Comparer,
     CompareFunction,
     FilterFunction,
     MapFunction,
@@ -23,6 +32,7 @@ export type {
 }
 
 export {
+    compareMethods,
     CappedStructure,
     guardOverflow,
     TraverseMethod,

@@ -1,12 +1,4 @@
 /**
- * A function that compares two elements a and b of the same type.
- * It can be applied to any data type, including arrays or objects.
- * It should return `-1` if a considered inferior to b, `1` if superior,
- * and `zero` if considered equals.
- */
-type CompareFunction<T> = (a: T, b: T) => -1 | 0 | 1
-
-/**
  * A callback function used in a structure traversal. It takes the current
  * value as input and returns a boolean describing whether or not the value
  * should be present in the filtered structure.
@@ -73,7 +65,6 @@ enum TraverseMethod {
 }
 
 export type {
-    CompareFunction,
     FilterFunction,
     MapFunction,
     ReduceFunction,

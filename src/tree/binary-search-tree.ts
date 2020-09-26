@@ -1,11 +1,16 @@
 import type {
+    Comparer,
     CompareFunction,
     FilterFunction,
     MapFunction,
     ReduceFunction,
     TraverseCallback,
-} from '../_shared/types'
-import { TraverseMethod } from '../_shared/types'
+} from '../_shared'
+
+import {
+    compareMethods,
+    TraverseMethod,
+} from '../_shared'
 import { Queue } from '../queue'
 
 // convenience type alias
@@ -71,7 +76,7 @@ class BinarySearchTreeNode<T> {
  * a custom `compareFunction` that will be used to determine the position
  * of the elements instead of the default comparison operators.
  */
-class BinarySearchTree<T> {
+class BinarySearchTree<T> implements Comparer<T> {
     private _root?: BinarySearchTreeNode<T>
 
     /**
@@ -84,8 +89,12 @@ class BinarySearchTree<T> {
      * @param b - Element B
      * @returns `-1` if a \< b, `1` if a \> b, `0` if a === b
      */
-    private compare: CompareFunction<T> =
-        (a: T, b: T) => a < b ? -1 : a > b ? 1 : 0
+    compare: CompareFunction<T> = compareMethods.compare.bind(this)
+    inf = compareMethods.inf.bind(this)
+    sup = compareMethods.sup.bind(this)
+    equal = compareMethods.equal.bind(this)
+    infOrEqual = compareMethods.infOrEqual.bind(this)
+    supOrEqual = compareMethods.supOrEqual.bind(this)
 
     private traverseMethods = [
         this.traverseBFS.bind(this), // Ahh JavaScript...!
