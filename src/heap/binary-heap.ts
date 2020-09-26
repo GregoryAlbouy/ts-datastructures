@@ -103,7 +103,7 @@ class BinaryHeap<T> implements Comparer<T> {
         const maxValueIndex = (...indexes: number[]) => {
             let iMax = indexes[0]
             indexes.forEach((i) => {
-                if (this.sup(this.values[i], this.values[iMax])) iMax = i
+                if (this.supOrEqual(this.values[i], this.values[iMax])) iMax = i
             })
             return iMax
         }

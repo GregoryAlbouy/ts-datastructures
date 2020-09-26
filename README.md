@@ -16,11 +16,11 @@ The package provides ready-to-use and functionnal data structures. It includes l
 
 This project is also a pretext for the student developer I am to learn or practice many aspects of the development process:
 
-- :office: Understanding data structures
-- :vertical_traffic_light: Keeping clean code and good coding practices
-- :white_check_mark: Making relevant tests with high coverage rate
-- :arrows_counterclockwise: Using Continuous Integration tools
-- :blue_book: Maintaining a fully documented codebase
+- :office: &nbsp;Understanding data structures
+- :vertical_traffic_light: &nbsp;Keeping clean code and good coding practices
+- :white_check_mark: &nbsp;Making relevant tests with high coverage rate
+- :arrows_counterclockwise: &nbsp;Using Continuous Integration tools
+- :blue_book: &nbsp;Maintaining a fully documented codebase
 
 Feedback of any kind is always appreciated!
 
@@ -31,13 +31,7 @@ npm i ts-structures
 ```
 
 ```typescript
-const {
-    DoublyLinkedList,
-    Queue,
-    Stack,
-    BinarySearchTree,
-    //Graph,
-} = require('ts-structures')
+const { BinarySearchTree } = require('ts-structures')
 
 const tree = new BinarySearchTree()
 // ...
@@ -51,6 +45,7 @@ const tree = new BinarySearchTree()
 
 - [Doubly Linked List](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_list_doubly_linked_list_.doublylinkedlist.html)
 - [Queue](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_queue_queue_.queue.html)
+- [Priority Queue](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_queue_priority_queue_.priorityqueue.html)
 - [Stack](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_stack_stack_.stack.html)
 - [Binary Search Tree](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_tree_binary_search_tree_.binarysearchtree.html)
 - [Binary Heap](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_heap_binary_heap_.binaryheap.html)

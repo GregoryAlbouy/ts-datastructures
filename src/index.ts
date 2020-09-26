@@ -8,7 +8,10 @@ import type {
 
 import { TraverseMethod } from './_shared'
 import { DoublyLinkedList } from './list'
-import { Queue } from './queue'
+import {
+    Queue,
+    PriorityQueue,
+} from './queue'
 import { Stack } from './stack'
 import { BinarySearchTree } from './tree'
 import { BinaryHeap } from './heap'
@@ -24,6 +27,7 @@ export type {
 export {
     DoublyLinkedList,
     Queue,
+    PriorityQueue,
     Stack,
     BinarySearchTree,
     TraverseMethod,
