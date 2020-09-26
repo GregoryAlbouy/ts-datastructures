@@ -62,11 +62,12 @@ class BinaryHeap<T> implements Comparer<T> {
         return this.values
     }
 
-    public insert(...values: T[]) {
+    public insert(...values: T[]): T {
         values.forEach((value) => {
             this.values.push(value)
             this.bubbleUp()
         })
+        return values[values.length - 1]
     }
 
     public shift() {
@@ -113,7 +114,7 @@ class BinaryHeap<T> implements Comparer<T> {
             const iRchild = iLchild + 1
             const iMax = (() => {
                 if (!this.hasIndex(iLchild)) return i
-                if (!this.hasIndex(iRchild)) return maxValueIndex(i, iRchild)
+                if (!this.hasIndex(iRchild)) return maxValueIndex(i, iLchild)
                 return maxValueIndex(i, iLchild, iRchild)
             })()
             const next = i === iMax ? 0 : iMax
