@@ -22,6 +22,8 @@ This project is also a pretext for the student developer I am to learn or practi
 - :arrows_counterclockwise: Using Continuous Integration tools
 - :blue_book: Maintaining a fully documented codebase
 
+Feedback of any kind is always appreciated!
+
 ## Usage
 
 ```console
