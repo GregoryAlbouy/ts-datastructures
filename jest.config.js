@@ -1,6 +1,6 @@
 module.exports = {
     coverageDirectory: './test/.coverage',
-    coverageReporters: ['lcov', 'json'],
+    coverageReporters: ['json'],
     coverageThreshold: {
         global: {
             branches: 90,
