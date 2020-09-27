@@ -1,11 +1,9 @@
 # TypeScript Datastructures
 
 [![Build Status](https://img.shields.io/travis/gregoryalbouy/ts-datastructures/master)](https://travis-ci.org/GregoryAlbouy/ts-datastructures)
-[![Coverage status](https://img.shields.io/coveralls/github/GregoryAlbouy/ts-datastructures?branch=master)](https://coveralls.io/github/GregoryAlbouy/ts-datastructures?branch=master)
+[![codecov](https://img.shields.io/codecov/c/github/gregoryalbouy/ts-datastructures)](https://codecov.io/gh/GregoryAlbouy/ts-datastructures/branch/master)
 [![NPM version](https://img.shields.io/npm/v/ts-structures)](https://www.npmjs.org/package/ts-structures)
 [![NPM downloads](https://img.shields.io/npm/dt/ts-structures)](https://www.npmjs.org/package/ts-structures)
-
-_Work in progress_
 
 Implementation of common data structures, TypeScript pendant of my [go-datastructures repo](https://github.com/gregoryalbouy/go-datastructures).
 (As a huge Go enthusiast, I must admit that working with a language that support Generics is quite a relief for this kind of work)
