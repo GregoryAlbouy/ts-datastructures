@@ -1,7 +1,7 @@
 # TypeScript Datastructures
 
-[![Build Status](https://travis-ci.org/GregoryAlbouy/ts-datastructures.svg?branch=master)](https://travis-ci.org/GregoryAlbouy/ts-datastructures)
-[![Coverage Status](https://coveralls.io/repos/github/GregoryAlbouy/ts-datastructures/badge.svg?branch=master)](https://coveralls.io/github/GregoryAlbouy/ts-datastructures?branch=master)
+[![Build Status](https://img.shields.io/travis/gregoryalbouy/ts-datastructures/master)](https://travis-ci.org/GregoryAlbouy/ts-datastructures)
+[![Coverage status](https://img.shields.io/coveralls/github/GregoryAlbouy/ts-datastructures?branch=master)](https://coveralls.io/github/GregoryAlbouy/ts-datastructures?branch=master)
 [![NPM version](https://img.shields.io/npm/v/ts-structures)](https://www.npmjs.org/package/ts-structures)
 [![NPM downloads](https://img.shields.io/npm/dt/ts-structures)](https://www.npmjs.org/package/ts-structures)
 
