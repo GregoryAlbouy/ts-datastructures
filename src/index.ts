@@ -15,6 +15,7 @@ import {
 import { Stack } from './stack'
 import { BinarySearchTree } from './tree'
 import { BinaryHeap } from './heap'
+import { ListGraph } from './graph'
 
 export type {
     CompareFunction,
@@ -32,4 +33,5 @@ export {
     BinarySearchTree,
     TraverseMethod,
     BinaryHeap,
+    ListGraph,
 }
