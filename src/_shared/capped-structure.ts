@@ -28,7 +28,7 @@ function guardOverflow(throwError: boolean, returnValue?: any) {
             ) return method.apply(this, args)
 
             if (throwError)
-                throw new Error(`${target}.${methodName}: insertion aborted (limit of ${this.length} reached)`)
+                throw new Error(`${target.constructor.name}.${methodName}: insertion aborted (limit of ${this.length} reached)`)
 
             return returnValue
         }

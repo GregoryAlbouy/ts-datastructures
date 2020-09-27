@@ -4,19 +4,31 @@ import {
 } from '../src/_shared'
 
 describe('guardOverflow', function() {
-    it('should do nothing', function() {
+    it('insert values', function() {
         const uncapped = new TestCappableStructure()
         const capped = new TestCappableStructure({ cap: 2 })
 
         expect(uncapped.addOrThrowError()).toEqual(true)
         expect(uncapped.addOrReturn42()).toEqual(true)
+        expect(uncapped.length).toEqual(2)
 
         expect(capped.addOrThrowError()).toEqual(true)
         expect(capped.addOrReturn42()).toEqual(true)
+        expect(capped.length).toEqual(2)
+    })
 
-        // length has reached the max capacity
-        expect(capped.addOrThrowError).toThrowError()
+    it('prevent insertion, return specified value', function() {
+        const capped = new TestCappableStructure({ cap: 2 })
+        capped.length = 2
+
         expect(capped.addOrReturn42()).toEqual(42)
+    })
+
+    it('prevent insertion, throw error', function() {
+        const capped = new TestCappableStructure({ cap: 2 })
+        capped.length = 2
+
+        expect(() => capped.addOrThrowError()).toThrowError('TestCappableStructure.addOrThrowError: insertion aborted (limit of 2 reached)')
     })
 })
 
