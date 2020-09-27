@@ -47,9 +47,14 @@ const tree = new BinarySearchTree()
 - [Stack](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_stack_stack_.stack.html)
 - [Binary Search Tree](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_tree_binary_search_tree_.binarysearchtree.html)
 - [Binary Heap](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_heap_binary_heap_.binaryheap.html)
-- Graph *in progress*
+- [Graph](https://gregoryalbouy-ts-datastructures.netlify.app/interfaces/_graph_index_.graph.html)
+    - [List Graph](https://gregoryalbouy-ts-datastructures.netlify.app/classes/_graph_list_graph_.listgraph.html) (Adjacency list based graph, optionnally directed or weighted): still needs massive refacto & documentation
+    - Matrix Graph (Adjacency matrix based graph): *in progress*
 
 ## Todo
 
+- Graph implementation
+    - Refacto
+    - Documentation
+    - MatrixGraph
 - More data structures
-- Benchmarks
