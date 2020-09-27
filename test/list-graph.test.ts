@@ -7,98 +7,160 @@ describe('list graph', function() {
         graph = newTestGraph()
     })
 
-    it('getters', function() {
-        expect(graph.data.get('luke')).toBeDefined()
-        expect(graph.data.get('luke')?.getEdge('leia')).toBeDefined()
-        expect(graph.data.get('leia')?.getEdge('luke')).toBeDefined()
-        expect(graph.data.get('movie')?.getEdge('frodo')).toBeDefined()
-        expect(graph.data.get('frodo')?.getEdge('movie')).toBeUndefined()
+    describe('getters', function() {
+        it('should return correct size', function() {
+            expect(graph.size).toEqual(5)
+        })
+
+        it('should return existant vertexes', function() {
+            expect(graph.get('luke')).toBeDefined()
+        })
+
+        it('should return defined edges', function() {
+            // full edge
+            expect(graph.getEdge('luke', 'leia')).toBeDefined()
+            expect(graph.getEdge('leia', 'luke')).toBeDefined()
+
+            // directed edge
+            expect(graph.getEdge('movie', 'frodo')).toBeDefined()
+        })
+
+        it('should not return undefined edges', function() {
+            expect(graph.getEdge('frodo', 'movie')).toBeUndefined()
+        })
     })
 
-    it('add', function() {
-        const addExistingVertex = graph.addVertex('luke')
-        const addExistingEdge = graph.addEdge('luke', 'leia')
-        const addInvalidEdge0 = graph.addEdge('null', 'luke')
-        const addInvalidEdge1 = graph.addEdge('luke', 'null')
-        const addInvalidEdge2 = graph.addEdge('gandalf', 'movie')
-        const addValidDirectedEdge = graph.addDirectedEdge('gandalf', 'movie')
+    describe('add vertexes', function() {
+        it('should add new vertex', function() {
+            expect(graph.addVertex('Kev Adams')).toBeTruthy()
+            expect(graph.data.size).toEqual(6)
+        })
 
-        expect(addExistingVertex).toBeFalsy()
-        expect(addExistingEdge).toBeFalsy()
-        expect(addInvalidEdge0).toBeFalsy()
-        expect(addInvalidEdge1).toBeFalsy()
-        expect(addInvalidEdge2).toBeFalsy()
-        expect(addValidDirectedEdge).toBeTruthy()
-        expect(graph.data.size).toEqual(5)
-        expect(graph.data.get('luke')?.getEdge('leia')).toEqual({ vertex: 'leia', weight: 42 })
-        expect(graph.data.get('luke')?.getEdge('movie')).toBeUndefined()
-        expect(graph.getEdgeWeight('leia', 'luke')).toEqual(42)
-
-        expect(graph.data.get('gandalf')?.size).toEqual(2)
-        expect(graph.data.get('movie')?.size).toEqual(4)
-        expect(graph.data.get('movie')?.getEdge('frodo')).toEqual({ vertex: 'frodo', weight: 7 })
+        it('should not add already defined vertex', function() {
+            expect(graph.addVertex('luke')).toBeFalsy()
+            expect(graph.data.size).toEqual(5)
+        })
     })
 
-    it('set weight', function() {
-        const setGandalf = graph.setEdgeWeight('movie', 'gandalf', 1000)
-        const falsy = graph.setEdgeWeight('gandalf', 'movie', 10)
+    describe('add edges', function() {
+        it('should add inexisting/half edges', function() {
+            // half direction exists
+            expect(graph.addEdge('gandalf', 'movie')).toBeTruthy()
+            expect(graph.get('gandalf')?.getEdge('movie')).toBeDefined()
 
-        expect(setGandalf).toEqual(true)
-        expect(falsy).toEqual(false)
-        expect(graph.getEdgeWeight('movie', 'gandalf')).toEqual(1000)
-        expect(graph.getEdgeWeight('gandalf', 'movie')).toBeUndefined()
+            // other direction exists
+            expect(graph.addDirectedEdge('leia', 'movie')).toBeTruthy()
+            expect(graph.get('leia')?.getEdge('movie')).toBeDefined()
+
+            expect(graph.get('movie')?.size).toEqual(4)
+            expect(graph.get('gandalf')?.size).toEqual(2)
+            expect(graph.get('leia')?.size).toEqual(2)
+        })
+
+        it('should add weighted edge', function() {
+            graph.addDirectedEdge('frodo', 'movie', 42)
+            expect(graph.getEdge('frodo', 'movie')).toEqual({ vertex: 'movie', weight: 42 })
+        })
+
+        it('should not add existing edges', function() {
+            // edge exists
+            expect(graph.addEdge('frodo', 'gandalf')).toBeFalsy()
+            expect(graph.get('frodo')?.size).toEqual(1)
+
+            // directed edge exists
+            expect(graph.addDirectedEdge('movie', 'luke')).toBeFalsy()
+            expect(graph.get('movie')?.size).toEqual(4)
+        })
+
+        it('should not add edges for inexistant vertex', function() {
+            expect(graph.addEdge('null', 'luke')).toBeFalsy()
+            expect(graph.addEdge('luke', 'null')).toBeFalsy()
+            expect(graph.addEdge('null', 'null')).toBeFalsy()
+            expect(graph.data.size).toEqual(5)
+        })
     })
 
-    it('remove vertex', function() {
-        const removeLuke = graph.removeVertex('luke')
-        const removeNull = graph.removeVertex('null')
+    describe('update weight', function() {
+        it('should have default weight', function() {
+            graph.addEdge('frodo', 'leia')
+            expect(graph.getEdge('frodo', 'leia')?.weight).toEqual(1)
+        })
 
-        expect(removeLuke).toEqual(true)
-        expect(removeNull).toEqual(false)
+        it('should update weight of defined edge', function() {
+            expect(graph.setEdgeWeight('movie', 'gandalf', 42)).toBeTruthy()
+            expect(graph.getEdgeWeight('movie', 'gandalf')).toEqual(42)
+        })
 
-        expect(graph.data.get('luke')).toBeUndefined()
-        expect(graph.data.get('leia')?.size).toEqual(0)
-        expect(graph.data.get('movie')?.size).toEqual(3)
-        expect(graph.data.get('movie')?.getEdge('luke')).toBeUndefined()
+        it('should not update weight of undefined edge', function() {
+            expect(graph.setEdgeWeight('gandalf', 'movie', 42)).toBeFalsy()
+            expect(graph.getEdgeWeight('gandalf', 'movie')).toBeUndefined()
+        })
     })
 
-    it('reset vertex', function() {
-        const resetLuke = graph.resetVertex('luke')
-        const resetNull = graph.resetVertex('null')
+    describe('remove vertex', function() {
+        it('should remove existant vertex and its edges', function() {
+            expect(graph.removeVertex('luke')).toBeTruthy()
+            expect(graph.getEdge('leia', 'luke')).toBeUndefined()
+            expect(graph.getEdge('movie', 'luke')).toBeUndefined()
+            expect(graph.size).toEqual(4)
+        })
 
-        expect(resetLuke).toEqual(true)
-        expect(resetNull).toEqual(false)
-
-        expect(graph.data.get('luke')?.size).toEqual(0)
-        expect(graph.data.get('leia')?.size).toEqual(0)
-        expect(graph.data.get('movie')?.size).toEqual(3)
-        expect(graph.data.get('movie')?.getEdge('luke')).toBeUndefined()
+        it('should not remove inexistant', function() {
+            expect(graph.removeVertex('null')).toBeFalsy()
+            expect(graph.size).toEqual(5)
+        })
     })
 
-    it('remove edge', function() {
-        const truthies = [
-            graph.removeEdge('frodo', 'gandalf'),
-            graph.removeDirectedEdge('leia', 'luke'),
-            graph.removeDirectedEdge('movie', 'leia'),
-        ]
-        const falsies = [
-            graph.removeEdge('luke', 'movie'),
-            graph.removeEdge('movie', 'luke'),
-            graph.removeDirectedEdge('leia', 'gandalf'),
-            graph.removeDirectedEdge('leia', 'movie'),
-            graph.removeDirectedEdge('null', 'frodo'),
-            graph.removeDirectedEdge('frodo', 'null'),
-        ]
+    describe('reset vertex', function() {
+        it('should reset vertex and update edges', function() {
+            expect(graph.resetVertex('luke')).toBeTruthy()
+            expect(graph.getEdge('leia', 'luke')).toBeUndefined()
+            expect(graph.getEdge('movie', 'luke')).toBeUndefined()
+            expect(graph.size).toEqual(5)
+        })
 
-        truthies.forEach((truthy) => expect(truthy).toEqual(true))
-        falsies.forEach((falsy) => expect(falsy).toEqual(false))
+        it('should not reset inexistant vertex', function() {
+            expect(graph.resetVertex('null')).toBeFalsy()
+        })
+    })
 
-        expect(graph.data.get('leia')?.size).toEqual(0)
-        expect(graph.data.get('luke')?.size).toEqual(1)
-        expect(graph.data.get('movie')?.size).toEqual(3)
+    describe('remove edge', function() {
+        it('should remove defined edge', function() {
+            // remove full edge
+            expect(graph.removeEdge('frodo', 'gandalf')).toBeTruthy()
+            expect(graph.getEdge('frodo', 'gandalf')).toBeUndefined()
+            expect(graph.getEdge('gandalf', 'frodo')).toBeUndefined()
 
-        expect(graph.data.get('luke')?.getEdge('leia')).toEqual({ vertex: 'leia', weight: 42 })
-        expect(graph.data.get('movie')?.getEdge('leia')).toBeUndefined()
+            // remove single direction from double direction
+            expect(graph.removeDirectedEdge('luke', 'leia')).toBeTruthy()
+            expect(graph.getEdge('luke', 'leia')).toBeUndefined()
+            expect(graph.getEdge('leia', 'luke')).toBeDefined()
+
+            // remove double direction from single direction
+            expect(graph.removeEdge('movie', 'leia')).toBeTruthy()
+            expect(graph.getEdge('movie', 'leia')).toBeUndefined()
+            expect(graph.getEdge('leia', 'movie')).toBeUndefined()
+
+            // check sizes
+            expect(graph.get('frodo')?.size).toEqual(0)
+            expect(graph.get('leia')?.size).toEqual(1)
+            expect(graph.get('movie')?.size).toEqual(3)
+        })
+
+        it('should not remove undefined edge', function() {
+            // remove double edge from no edge
+            expect(graph.removeEdge('luke', 'frodo')).toBeFalsy()
+            expect(graph.get('luke')?.size).toEqual(1)
+            expect(graph.get('frodo')?.size).toEqual(1)
+
+            // remove single edge from no edge
+            expect(graph.removeDirectedEdge('luke', 'frodo')).toBeFalsy()
+            expect(graph.get('luke')?.size).toEqual(1)
+
+            // remove single edge from opposed direction
+            expect(graph.removeDirectedEdge('gandalf', 'movie')).toBeFalsy()
+            expect(graph.get('gandalf')?.size).toEqual(1)
+        })
     })
 })
 
@@ -106,11 +168,12 @@ function newTestGraph() {
     const graph = new ListGraph()
     const vertexes = ['luke', 'leia', 'frodo', 'gandalf', 'movie']
 
-    vertexes.forEach((vertex) => graph.addVertex(vertex))
     vertexes
+        .map((vertex) => (graph.addVertex(vertex), vertex)) // eslint-disable-line
         .filter((vertex) => vertex !== 'movie')
-        .forEach((vertex) => graph.addDirectedEdge('movie', vertex, 7))
-    graph.addEdge('luke', 'leia', 42)
+        .forEach((vertex) => graph.addDirectedEdge('movie', vertex))
+
+    graph.addEdge('luke', 'leia')
     graph.addEdge('frodo', 'gandalf')
     return graph
 }
