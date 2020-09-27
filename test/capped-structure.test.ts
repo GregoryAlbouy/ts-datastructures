@@ -5,8 +5,8 @@ import {
 
 describe('guardOverflow', function() {
     it('should do nothing', function() {
-        const uncapped = new CappableStructure()
-        const capped = new CappableStructure({ cap: 2 })
+        const uncapped = new TestCappableStructure()
+        const capped = new TestCappableStructure({ cap: 2 })
 
         expect(uncapped.addOrThrowError()).toEqual(true)
         expect(uncapped.addOrReturn42()).toEqual(true)
@@ -20,7 +20,7 @@ describe('guardOverflow', function() {
     })
 })
 
-class CappableStructure implements CappedStructure {
+class TestCappableStructure implements CappedStructure {
     length = 0
     capacity = -1
 
