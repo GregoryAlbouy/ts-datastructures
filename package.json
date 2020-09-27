@@ -17,7 +17,8 @@
     "package:publish": "cd ./package && npm publish --access=public",
     "docs": "typedoc --options ./typedoc.config.js",
     "serve:coverage": "SERVE_DOCUMENT=coverage PORT=9998 node ./scripts/serve",
-    "serve:docs": "SERVE_DOCUMENT=docs PORT=9997 node ./scripts/serve"
+    "serve:docs": "SERVE_DOCUMENT=docs PORT=9997 node ./scripts/serve",
+    "clear": "rm -r ./docs ./package ./test/.coverage"
   },
   "keywords": [
     "typescript",

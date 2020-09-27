@@ -12,7 +12,7 @@ Implementation of common data structures, TypeScript pendant of my [go-datastruc
 
 The package provides ready-to-use and functionnal data structures. It includes linked lists, queues, stack, binary heaps and I intent to implement a lot more.
 
-This project is also a pretext for the student developer I am to learn or practice many aspects of the development process:
+This project is also a pretext for the student developer I am to learn and practice many aspects of the development process:
 
 - :dna: &nbsp;Understanding data structures
 - :vertical_traffic_light: &nbsp;Keeping clean code and good coding practices
