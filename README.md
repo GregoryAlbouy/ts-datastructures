@@ -16,7 +16,7 @@ The package provides ready-to-use and functionnal data structures. It includes l
 
 This project is also a pretext for the student developer I am to learn or practice many aspects of the development process:
 
-- :office: &nbsp;Understanding data structures
+- :dna: &nbsp;Understanding data structures
 - :vertical_traffic_light: &nbsp;Keeping clean code and good coding practices
 - :white_check_mark: &nbsp;Making relevant tests with high coverage rate
 - :arrows_counterclockwise: &nbsp;Using Continuous Integration tools
