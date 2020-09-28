@@ -12,5 +12,5 @@ module.exports = {
     roots: ['./test'],
     setupFilesAfterEnv: ['./test/jest.setup.ts'],
     testEnvironment: 'node',
-    testPathIgnorePatterns: ['<rootDir>/test/e2e'],
+    testPathIgnorePatterns: ['./test/e2e'],
 }
