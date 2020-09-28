@@ -12,7 +12,7 @@ parserOptions:
 plugins:
   - '@typescript-eslint'
   - eslint-plugin-tsdoc
-ignorePatterns: [package/**/*, docs/**/*]
+ignorePatterns: [lib/**/*, docs/**/*]
 rules:
   indent: [error, 4]
   comma-dangle: [error, always-multiline]
