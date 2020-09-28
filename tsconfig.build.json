@@ -2,9 +2,11 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "target": "es6",
+    "module": "commonjs",
     "outDir": "./package",
     "rootDir": "./src",
-    "declaration": true
+    "declaration": true,
+    "sourceMap": false
   },
   "exclude": [
     "./test/**/*"
