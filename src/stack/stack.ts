@@ -19,7 +19,16 @@ class StackNode<T> {
  * interface to handle overflow of a `capacity` is set.
  */
 class Stack<T> implements CappedStructure {
+    /**
+     * The current amount of elements.
+     */
     length = 0
+
+    /**
+     * The maximum elements the structure can contain.
+     * It can be set via the constructor or `setCapacity`.
+     * Default value is `-1` (no limit).
+     */
     capacity = -1
     front?: StackNode<T>
 

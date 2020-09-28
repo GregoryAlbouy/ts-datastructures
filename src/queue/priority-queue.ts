@@ -24,6 +24,12 @@ class PriorityQueueNode<T> {
  */
 class PriorityQueue<T> implements CappedStructure {
     public values: BinaryHeap<PriorityQueueNode<T>>
+
+    /**
+     * The maximum elements the structure can contain.
+     * It can be set via the constructor or `setCapacity`.
+     * Default value is `-1` (no limit).
+     */
     public capacity = -1
 
     /**
@@ -44,6 +50,9 @@ class PriorityQueue<T> implements CappedStructure {
         if (capacity && capacity > 0) this.capacity = capacity
     }
 
+    /**
+     * The current amount of elements.
+     */
     get length() {
         return !this.values ? 0 : this.values.length
     }

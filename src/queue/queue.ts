@@ -21,7 +21,16 @@ class QueueNode<T> {
  * the CappedStructure interface to handle overflow of a `capacity` is set.
  */
 class Queue<T> implements CappedStructure {
+    /**
+     * The current amount of elements.
+     */
     public length = 0
+
+    /**
+     * The maximum elements the structure can contain.
+     * It can be set via the constructor or `setCapacity`.
+     * Default value is `-1` (no limit).
+     */
     public capacity = -1
     private _first?: QueueNode<T>
     private _last?: QueueNode<T>
