@@ -64,4 +64,4 @@ class Stack<T> implements CappedStructure {
     }
 }
 
-export default Stack
+export { Stack }

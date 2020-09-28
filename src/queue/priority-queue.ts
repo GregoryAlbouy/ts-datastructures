@@ -73,4 +73,4 @@ class PriorityQueue<T> implements CappedStructure {
     }
 }
 
-export default PriorityQueue
+export { PriorityQueue }

@@ -85,4 +85,4 @@ class Queue<T> implements CappedStructure {
     }
 }
 
-export default Queue
+export { Queue }

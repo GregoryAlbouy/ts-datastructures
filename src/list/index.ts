@@ -1,4 +1,4 @@
-import DoublyLinkedList from './doubly-linked-list'
+import { DoublyLinkedList } from './doubly-linked-list'
 
 type ListMapper<T, U> =
     (currentValue: T, currentNode?: ListNode<T>, currentList?: List<T>) => U

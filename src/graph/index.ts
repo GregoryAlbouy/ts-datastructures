@@ -1,4 +1,4 @@
-import ListGraph from './list-graph'
+import { ListGraph } from './list-graph'
 
 // Note: this is still a mess
 // Refacto in progress

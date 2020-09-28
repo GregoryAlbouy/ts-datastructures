@@ -1,4 +1,4 @@
-import BinaryHeap from './binary-heap'
+import { BinaryHeap } from './binary-heap'
 
 export {
     BinaryHeap,

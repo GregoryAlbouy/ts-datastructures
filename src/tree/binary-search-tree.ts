@@ -381,6 +381,7 @@ class BinarySearchTree<T> implements Comparer<T> {
     }
 }
 
-export default BinarySearchTree
-
-export { TraverseMethod }
+export {
+    BinarySearchTree,
+    TraverseMethod,
+}

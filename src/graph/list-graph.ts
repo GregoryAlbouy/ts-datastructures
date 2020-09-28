@@ -1,3 +1,4 @@
+// import type { TraverseCallback } from '../_shared/types'
 import type { Vertex } from '.'
 import {
     Graph,
@@ -81,6 +82,26 @@ class ListGraph implements Graph<string> {
     ): boolean {
         return !!this.data.get(from)?.getEdge(to)?.setWeight(weight)
     }
+
+    // public traverseDFSRecursive(
+    //     start: Vertex<string>,
+    //     callback: TraverseCallback<Vertex<string>>,
+    // ) {
+    //     const visited = new Set<Vertex<string>>()
+
+    //     const recurse = (current: Vertex<string>) => {
+    //         if (!current) return
+
+    //         callback(current)
+    //         visited.add(current)
+
+    //         this.get(current)!.forEach((edge: Edge) => {
+    //             if (!visited.has(edge.vertex)) return recurse(edge.vertex)
+    //         })
+    //     }
+
+    //     recurse(start)
+    // }
 }
 
-export default ListGraph
+export { ListGraph }

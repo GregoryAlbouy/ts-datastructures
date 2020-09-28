@@ -135,4 +135,4 @@ class BinaryHeap<T> implements Comparer<T> {
     }
 }
 
-export default BinaryHeap
+export { BinaryHeap }

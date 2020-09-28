@@ -149,4 +149,4 @@ class DoublyLinkedList<T> implements List<T> {
     }
 }
 
-export default DoublyLinkedList
+export { DoublyLinkedList }
