@@ -161,6 +161,17 @@ describe('list graph', function() {
             expect(graph.removeDirectedEdge('gandalf', 'movie')).toBeFalsy()
             expect(graph.get('gandalf')?.size).toEqual(1)
         })
+
+        // describe('traversal', function() {
+        //     it('should store values in array', function() {
+        //         const array: string[] = []
+        //         const storeCallback = (vtx: string) => array.push(vtx)
+        //         const start = 'gandalf'
+        //         graph.traverseDFSRecursive(start, storeCallback)
+
+        //         graph.data.forEach((v) => expect(array).toContain(v))
+        //     })
+        // })
     })
 })
 
