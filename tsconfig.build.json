@@ -3,12 +3,15 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "outDir": "./package",
+    "outDir": "./lib",
     "rootDir": "./src",
     "declaration": true,
-    "sourceMap": false
+    "removeComments": false,
+    "sourceMap": false,
   },
   "exclude": [
-    "./test/**/*"
-  ],
+    "./test/**/*",
+    "./src/**/*.spec.ts",
+    "./src/**/*.test.ts"
+  ]
 }

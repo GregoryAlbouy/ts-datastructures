@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "removeComments": false,
     "moduleResolution": "node",
     "strict": true,
     "noUnusedLocals": true,
@@ -16,6 +15,6 @@
   },
   "include": [
     "./src/**/*",
-    "./test/**/*"
+    "./test/**/*", "jest.lib.config.js"
   ],
 }
