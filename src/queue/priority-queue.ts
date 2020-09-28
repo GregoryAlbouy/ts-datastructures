@@ -54,8 +54,7 @@ class PriorityQueue<T> implements CappedStructure {
      * won't perform and return `undefined`.
      *
      * @param value - The value associed to the element.
-     * @returns The length of the current Queue after insertion,
-     * or `-1` if it failed.
+     * @returns The inserted element or `undefined` if it failed.
      */
     @guardOverflow(false, undefined)
     public enqueue(value: T, priority: number): PriorityQueueNode<T> | undefined {
@@ -66,7 +65,7 @@ class PriorityQueue<T> implements CappedStructure {
     /**
      * Removes the element with highest priority
      *
-     * @returns The value of the element removed.
+     * @returns The removes element or `undefined` if it failed.
      */
     public dequeue(): PriorityQueueNode<T> | undefined {
         return this.values.shift()
