@@ -30,7 +30,8 @@ class Stack<T> implements CappedStructure {
      * Default value is `-1` (no limit).
      */
     capacity = -1
-    front?: StackNode<T>
+
+    private _front?: StackNode<T>
 
     /**
      * Constructor takes an optional `capacity` parameter. If set,
@@ -40,6 +41,13 @@ class Stack<T> implements CappedStructure {
      */
     constructor(capacity?: number) {
         if (capacity && capacity > 0) this.capacity = capacity
+    }
+
+    /**
+     * Returns the stack's top element without popping it.
+     */
+    public pike() {
+        return this._front
     }
 
     /**
@@ -53,8 +61,8 @@ class Stack<T> implements CappedStructure {
      */
     @guardOverflow(false, -1)
     public push(value: T): number {
-        const node = new StackNode(value, this.front)
-        this.front = node
+        const node = new StackNode(value, this._front)
+        this._front = node
         return ++this.length
     }
 
@@ -65,9 +73,9 @@ class Stack<T> implements CappedStructure {
      * @returns The value of the removed element or `undefined` if it failed.
      */
     public pop(): T | undefined {
-        if (!this.front) return undefined
-        const value = this.front.value
-        this.front = this.front.next
+        if (!this._front) return undefined
+        const value = this._front.value
+        this._front = this._front.next
         this.length--
         return value
     }
