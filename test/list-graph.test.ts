@@ -59,7 +59,7 @@ describe('list graph', function() {
         })
     })
 
-    describe('add vertexes', function() {
+    describe('add vertices', function() {
         it('should add new vertex', function() {
             expect(dgraph.addVertex('Kev Adams', {})).toBeTruthy()
             expect(dgraph.order).toEqual(6)
@@ -68,6 +68,14 @@ describe('list graph', function() {
         it('should not add already defined vertex', function() {
             expect(dgraph.addVertex('luke', {})).toBeFalsy()
             expect(dgraph.order).toEqual(5)
+        })
+
+        it('should add multiple vertices', function() {
+            dgraph.addVertices(['hélène', {}], ['garçon1', {}], ['garçon2', {}])
+            expect(dgraph.get('hélène')).toBeDefined()
+            expect(dgraph.get('garçon1')).toBeDefined()
+            expect(dgraph.get('garçon2')).toBeDefined()
+            expect(dgraph.order).toEqual(8)
         })
     })
 
@@ -271,6 +279,25 @@ describe('list graph', function() {
             expect(characterGroup.length).toEqual(5)
         })
     })
+
+    describe('shortest path', function() {
+        it('should get shortest path (undirected)', function() {
+            const graph = newComplexGraph()
+            const expected = ['A', 'B', 'C', 'D', 'E', 'F']
+            const got = graph.shortestPath('A', 'F').map(({ id }) => id)
+            expect(got.length).toEqual(6)
+            expect(got).toStrictEqual(expected)
+        })
+
+        it('should get shortest filtered path (undirected)', function() {
+            const graph = newComplexGraph()
+            const filter = ({ id }: { id: string }) => id !== 'B'
+            const expected = ['A', 'D', 'E', 'F']
+            const got = graph.shortestPath('A', 'F', filter).map(({ id }) => id)
+            expect(got.length).toEqual(4)
+            expect(got).toStrictEqual(expected)
+        })
+    })
 })
 
 function newTestDirectedGraph() {
@@ -324,5 +351,31 @@ function newTestGraph() {
     graph.addEdge('support', 'paper')
     graph.addEdge('support', 'screen')
 
+    return graph
+}
+
+/*
+            A
+          / |
+      5 /   | 20
+      / 12  |   7
+    B - - - D - - - E
+      \     |       |
+      6 \   | 4     | 3
+          \ |       |
+            C - - - F
+                17
+*/
+function newComplexGraph() {
+    const graph = new ListGraph<{}>()
+    graph.addVertices(['D', {}], ['B', {}], ['E', {}], ['F', {}], ['A', {}], ['C', {}])
+    graph.addEdge('B', 'D', 12)
+    graph.addEdge('F', 'E', 3)
+    graph.addEdge('F', 'C', 17)
+    graph.addEdge('A', 'D', 20)
+    graph.addEdge('D', 'E', 7)
+    graph.addEdge('D', 'C', 4)
+    graph.addEdge('B', 'C', 6)
+    graph.addEdge('A', 'B', 5)
     return graph
 }

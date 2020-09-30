@@ -1,5 +1,5 @@
 import type {
-    // FilterFunction,
+    FilterFunction,
     // MapFunction,
     ReduceFunction,
     TraverseCallback,
@@ -9,7 +9,11 @@ import type {
     GraphOptions,
 } from '.'
 
-import { Queue } from '../queue'
+import {
+    PriorityQueue,
+    PriorityQueueNode,
+    Queue,
+} from '../queue'
 // import { Stack } from '../stack'
 
 /**
@@ -274,6 +278,15 @@ class ListGraph<T> implements Graph<T> {
     }
 
     /**
+     * Adds new vertices from given tuples [id, data]
+     * 
+     * @param vertices - The tuples separated by a comma
+     */
+    public addVertices(...vertices: [string, T][]) {
+        vertices.forEach(([id, data]) => this.addVertex(id, data))
+    }
+
+    /**
      * Removes vertex qith given id and its related edges.
      *
      * @param id - id of the vertex to be removed.
@@ -445,6 +458,79 @@ class ListGraph<T> implements Graph<T> {
         let accumulator = initialValue
         this.walk((vertex) => { accumulator = reduce(accumulator, vertex) })
         return accumulator
+    }
+
+    // TODO: find a correct way to also restitute distance between
+    // each step. That implies not returning a true Vertex<T>[]
+    // because of that additionnal info not carried by a Vertex.
+    //
+    // A linked list seems well suited for the task
+    // -> return DoublyLinkedList<Vertex<T>>
+    // each DLLNode: { value: { vertex: Vertex<T>, dist: number }, (...) }
+    // `dist` would represent the distance from either the previous
+    // vertex or from the start.
+    //
+    // Or an array of tuples [[Vertex<T>, number], [Vertex<T>, number], ...]
+    /**
+     * Returns an array of `Vertex<T>` representing the steps of
+     * the shortest path from position `from` to position `to`.
+     * It uses Dijktsra's algorithm.
+     * 
+     * @param from - The starting vertex id.
+     * @param to - The destination vertex id.
+     * @param filter - An optional filter function applied on vertices
+     * to restrict or not their usage.
+     * @returns An array of {@link Vertex | Vertex\<T\>}
+     */
+    public shortestPath(from: string, to: string, filter?: FilterFunction<Vertex<T>>) {
+        const pqueue = new PriorityQueue<string>()
+        const distances = new Map<string, number>()
+        const previous = new Map<string, string | null>()
+        const path: Vertex<T>[] = []
+
+        if (!this.get(from) || !this.get(to)) return path
+
+        // initialize
+        this.data.forEach((_, id) => {
+            if (id === from) {
+                distances.set(id, 0)
+                pqueue.enqueue(id, 0)
+            } else {
+                distances.set(id, Infinity)
+                pqueue.enqueue(id, Infinity)
+            }
+            previous.set(id, null)
+        })
+
+        let current: PriorityQueueNode<string> | undefined
+
+        while (current = pqueue.dequeue()) { // eslint-disable-line no-cond-assign
+            let smallest = current.value
+
+            // Path calculations over, render the final array
+            if (smallest === to) {
+                while (previous.get(smallest) !== undefined) { // explicit undefined or 0 would break
+                    path.push(this.get(smallest)!)
+                    smallest = previous.get(smallest)!
+                }
+
+                break
+            }
+
+            this.get(smallest)?.forEachEdge(({ to, weight }) => {
+                if (filter && !filter(this.get(to)!)) return
+
+                const candidate = distances.get(smallest)! + weight
+
+                if (candidate < distances.get(to)!) {
+                    distances.set(to, candidate)
+                    previous.set(to, smallest)
+                    pqueue.enqueue(to, candidate)
+                }
+            })
+        }
+
+        return path.reverse()
     }
 
     // CHECKPOINT REFACTO

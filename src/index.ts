@@ -5,6 +5,8 @@ import type {
     ReduceFunction,
     TraverseCallback,
 } from './_shared'
+import type { PriorityQueueNode } from './queue'
+import type { Vertex } from './graph'
 
 import { TraverseMethod } from './_shared'
 import { DoublyLinkedList } from './list'
@@ -23,6 +25,8 @@ export type {
     MapFunction,
     ReduceFunction,
     TraverseCallback,
+    PriorityQueueNode,
+    Vertex,
 }
 
 export {
