@@ -1,6 +1,7 @@
 # TypeScript Datastructures
 
 [![Build Status](https://img.shields.io/travis/gregoryalbouy/ts-datastructures/master)](https://travis-ci.org/GregoryAlbouy/ts-datastructures)
+[![Codacy](https://img.shields.io/codacy/grade/61dc898b0eaf4ba6bfea22eed767e74b/master)](https://www.codacy.com/)
 [![codecov](https://img.shields.io/codecov/c/github/gregoryalbouy/ts-datastructures)](https://codecov.io/gh/GregoryAlbouy/ts-datastructures/branch/master)
 [![NPM version](https://img.shields.io/npm/v/ts-structures)](https://www.npmjs.org/package/ts-structures)
 [![NPM downloads](https://img.shields.io/npm/dt/ts-structures)](https://www.npmjs.org/package/ts-structures)
