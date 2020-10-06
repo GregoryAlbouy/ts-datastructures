@@ -96,7 +96,7 @@ class Vertex<T> {
     }
 
     /**
-     * Prevents from altering the vertex once create.
+     * Prevents from altering the vertex once created.
      * Might change strategy later?
      */
     private lock() {
@@ -497,14 +497,14 @@ class ListGraph<T> implements Graph<T> {
             }
 
             this.get(smallest)?.forEachEdge(({ to, weight }) => {
-                if (filter && !filter(this.get(to)!)) return
+                if (isExcluded(this.get(to)!)) return
 
-                const candidate = distances.get(smallest)! + weight
+                const newDistance = distances.get(smallest)! + weight
 
-                if (candidate < distances.get(to)!) {
-                    distances.set(to, candidate)
+                if (newDistance < distances.get(to)!) {
+                    distances.set(to, newDistance)
                     previous.set(to, smallest)
-                    pqueue.enqueue(to, candidate)
+                    pqueue.enqueue(to, newDistance)
                 }
             })
         }
@@ -518,17 +518,17 @@ class ListGraph<T> implements Graph<T> {
         rootId: string,
         callback: TraverseCallback<Vertex<T>>,
     ) {
-        const visited = new Set<string>()
+        const done = new Set<string>()
 
         const recurse = (currentId: string) => {
             const currentVertex = this.get(currentId)
             if (!currentVertex) return
 
             callback(currentVertex)
-            visited.add(currentVertex.id)
+            done.add(currentVertex.id)
 
             currentVertex.forEachEdge(({ to }) => {
-                if (!visited.has(to)) recurse(to)
+                if (!done.has(to)) recurse(to)
             })
         }
 
@@ -571,21 +571,21 @@ class ListGraph<T> implements Graph<T> {
         const rootVertex = this.get(rootId)
         if (!rootVertex) return
 
-        const queue = new Queue<string>()
-        const visited = new Set<string>()
+        const seen = new Queue<string>()
+        const done = new Set<string>()
 
-        queue.enqueue(rootId)
-        visited.add(rootId)
+        seen.enqueue(rootId)
+        done.add(rootId)
 
         let currentId: string | undefined
 
-        while (currentId = queue.dequeue()) { // eslint-disable-line no-cond-assign
+        while (currentId = seen.dequeue()) { // eslint-disable-line no-cond-assign
             const currentVertex = this.get(currentId)!
 
             currentVertex.forEachEdge(({ to }) => {
-                if (!visited.has(to)) {
-                    queue.enqueue(to)
-                    visited.add(to)
+                if (!done.has(to)) {
+                    seen.enqueue(to)
+                    done.add(to)
                 }
             })
 
