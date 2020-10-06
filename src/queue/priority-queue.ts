@@ -39,7 +39,7 @@ class PriorityQueue<T> implements CappedStructure {
      *
      * @param capacity - The maximum queue length before overflow.
      */
-    constructor(capacity? : number) {
+    constructor(capacity?: number) {
         // higher priority -\> lower priority number, so we set a custom compareFunction
         // to use the BinaryHeap as a min binary heap
         const compareFunction = (a: PriorityQueueNode<T>, b: PriorityQueueNode<T>) => {

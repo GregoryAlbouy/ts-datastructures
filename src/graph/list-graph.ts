@@ -17,16 +17,16 @@ import {
 // import { Stack } from '../stack'
 
 /**
- * Represents a single weight connection from one vertex to another.
+ * Represents a weighted and directed connection from one vertex to another.
  */
 class Edge {
     /**
-     * The origin vertex.
+     * The origin vertex id.
      */
     from: string
 
     /**
-     * The destination vertex.
+     * The destination vertex id.
      */
     to: string
 
@@ -36,7 +36,7 @@ class Edge {
     weight: number
 
     /**
-     * Creates a new edge connecting two vertices with given weight.
+     * Creates a new weighted edge connecting two vertices.
      * 
      * @param from - The origin vertex.
      * @param to - The destination vertex.
@@ -62,7 +62,7 @@ class Edge {
 // - method to retrieve an array of relations at level N
 // - method to retrieve an array of direct neighbours (level 1)
 /**
- * Represents a node in a graph. It consists of a unique id, an associated data
+ * Represents a node in a graph. It consists of a unique id, a value
  * and a collection of edges connecting it to other vertices.
  */
 class Vertex<T> {
@@ -72,25 +72,25 @@ class Vertex<T> {
     public id: string
 
     /**
-     * Data carried by the vertex.
+     * The vertex value.
      */
-    public data: T
+    public value: T
 
     /**
      * A collection of edges stored in a Map for quick access
-     * a insert/remove operations.
+     * and insert/remove operations.
      */
     private _edges: Map<string, Edge>
 
     /**
-     * Returns a new `Vertex`with a **unique id** and associated data.
+     * Returns a new `Vertex` with a **unique id** and associated value.
      * 
      * @param id - Unique id in graph scope.
-     * @param data - The carried data.
+     * @param value - The vertex value.
      */
-    constructor(id: string, data: T) {
+    constructor(id: string, value: T) {
         this.id = id
-        this.data = data
+        this.value = value
         this._edges = new Map()
         this.lock()
     }
@@ -264,26 +264,26 @@ class ListGraph<T> implements Graph<T> {
     }
 
     /**
-     * Adds a new vertex, referenced with a **unique** id, holding given data.
+     * Adds a new vertex, referenced with a **unique** id, of given value.
      * If the given id is already used, the insertion is aborted.
      *
      * @param id - The vertex ID.  **Must be unique**
-     * @param data - Additionnal data.
+     * @param value - The vertex value.
      * @returns `true` or `false` if it failed to insert.
      */
-    public addVertex(id: string, data: T): boolean {
+    public addVertex(id: string, value: T): boolean {
         if (this.data.has(id)) return false
-        this.data.set(id, new Vertex(id, data))
+        this.data.set(id, new Vertex(id, value))
         return true
     }
 
     /**
-     * Adds new vertices from given tuples [id, data]
+     * Adds new vertices from given tuples [id, value]
      * 
      * @param vertices - The tuples separated by a comma
      */
     public addVertices(...vertices: [string, T][]) {
-        vertices.forEach(([id, data]) => this.addVertex(id, data))
+        vertices.forEach(([id, value]) => this.addVertex(id, value))
     }
 
     /**
@@ -299,7 +299,7 @@ class ListGraph<T> implements Graph<T> {
     }
 
     /**
-     * Removes all related edges to a vertex. The associated data persists.
+     * Removes all related edges to a vertex. Its value persists.
      *
      * @param id - id if the vertex to be removed.
      * @returns `true` or `false` if the vertex is not found.
@@ -307,7 +307,7 @@ class ListGraph<T> implements Graph<T> {
     public resetVertex(id: string): boolean {
         const vertex = this.get(id)
         if (!vertex) return false
-        return this.removeVertex(id) && this.addVertex(vertex.id, vertex.data)
+        return this.removeVertex(id) && this.addVertex(vertex.id, vertex.value)
     }
 
     /**
@@ -483,6 +483,7 @@ class ListGraph<T> implements Graph<T> {
      * @returns An array of {@link Vertex | Vertex\<T\>}
      */
     public shortestPath(from: string, to: string, filter?: FilterFunction<Vertex<T>>) {
+        const isExcluded = (vtx: Vertex<T>) => filter && !filter(vtx)
         const pqueue = new PriorityQueue<string>()
         const distances = new Map<string, number>()
         const previous = new Map<string, string | null>()
@@ -491,7 +492,9 @@ class ListGraph<T> implements Graph<T> {
         if (!this.get(from) || !this.get(to)) return path
 
         // initialize
-        this.data.forEach((_, id) => {
+        this.data.forEach((vtx, id) => {
+            if (isExcluded(vtx)) return
+
             if (id === from) {
                 distances.set(id, 0)
                 pqueue.enqueue(id, 0)
@@ -598,7 +601,7 @@ class ListGraph<T> implements Graph<T> {
         queue.enqueue(rootId)
         visited.add(rootId)
 
-        let currentId: string | undefined = rootId
+        let currentId: string | undefined
 
         while (currentId = queue.dequeue()) { // eslint-disable-line no-cond-assign
             const currentVertex = this.get(currentId)!
@@ -642,8 +645,8 @@ class ListGraph<T> implements Graph<T> {
     // public map<R>(mapCb: MapFunction<Vertex<T>, R>): ListGraph<R> {
     //     const newGraph = this.template()
     //     this.data.forEach((vertex) => {
-    //         const { id, data } = mapCb(vertex)
-    //         newGraph.addVertex(id, data)
+    //         const { id, value } = mapCb(vertex)
+    //         newGraph.addVertex(id, value)
 
     //         // not good: adds edges twice if not directed in current implementation
     //         vertex.edges().forEach(({ from, to, weight }) => newGraph.addEdge(from, to, weight))
