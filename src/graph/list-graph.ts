@@ -169,15 +169,6 @@ class ListGraph<T> implements Graph<T> {
     private isDirected = false
 
     /**
-     * Whether the edges should be assigner a weight value.
-     * Note: unused for now. A weight can be added no matter
-     * this value, and if not a default value is used.
-     * 
-     * @defaultValue `false`
-     */
-    private isWeighted = false
-
-    /**
      * The default weight value to add to the edges.
      * 
      * @defaultValue `1`
@@ -187,7 +178,6 @@ class ListGraph<T> implements Graph<T> {
     constructor(options?: GraphOptions | undefined) {
         if (options) {
             this.isDirected = options.directed ?? this.isDirected
-            this.isWeighted = options.weighted ?? this.isWeighted
             this.defaultWeight = options.defaultWeight ?? this.defaultWeight
         }
     }
@@ -281,9 +271,12 @@ class ListGraph<T> implements Graph<T> {
      * Adds new vertices from given tuples [id, value]
      * 
      * @param vertices - The tuples separated by a comma
+     * @returns The number of added vertices.
      */
     public addVertices(...vertices: [string, T][]) {
-        vertices.forEach(([id, value]) => this.addVertex(id, value))
+        let c = 0
+        vertices.forEach(([id, value]) => this.addVertex(id, value) && c++)
+        return c
     }
 
     /**
@@ -322,23 +315,13 @@ class ListGraph<T> implements Graph<T> {
      * @returns `true` or `false` if insertion failed.
      */
     public addEdge(from: string, to: string, weight = this.defaultWeight): boolean {
-        const {
-            srcVertex,
-            dstVertex,
-            isSafeAdd,
-        } = this.checkEdgeOps(from, to)
+        const { srcVertex, dstVertex, isSafeAdd } = this.checkEdgeOps(from, to)
+        const add = (vtx: Vertex<T>, from: string, to: string) =>
+            vtx.addEdge(new Edge(from, to, weight))
 
-        if (!isSafeAdd) return false
-
-        const srcAdded = srcVertex?.addEdge(new Edge(from, to, weight))
-
-        return this.isDirected
-            ? !!srcAdded
-            : !!srcAdded && !!dstVertex?.addEdge(new Edge(to, from, weight))
-
-        // return !!srcAdded && (this.isDirected
-        //     ? true
-        //     : !!dstVertex?.addEdge(new Edge(to, from, weight)))
+        return isSafeAdd
+            && !!add(srcVertex!, from, to)
+            && (this.isDirected || !!add(dstVertex!, to, from))
     }
 
     /**
@@ -352,19 +335,12 @@ class ListGraph<T> implements Graph<T> {
      * @returns `true` or `false` if it failed to remove an edge.
      */
     public removeEdge(from: string, to: string): boolean {
-        const {
-            srcVertex,
-            dstVertex,
-            isSafeRem,
-        } = this.checkEdgeOps(from, to)
+        const { srcVertex, dstVertex, isSafeRem } = this.checkEdgeOps(from, to)
+        const remove = (vtx: Vertex<T>, to: string) => vtx.removeEdge(to)
 
-        if (!isSafeRem) return false
-
-        const srcRemoved = srcVertex?.removeEdge(to)
-        if (this.isDirected) return !!srcRemoved
-
-        const dstRemoved = dstVertex?.removeEdge(from)
-        return !!srcRemoved && !!dstRemoved
+        return isSafeRem
+            && !!remove(srcVertex!, to)
+            && (this.isDirected || !!remove(dstVertex!, from))
     }
 
     /**
