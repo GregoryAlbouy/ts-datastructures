@@ -175,7 +175,7 @@ class ListGraph<T> implements Graph<T> {
      */
     private defaultWeight = 1
 
-    constructor(options?: GraphOptions | undefined) {
+    constructor(options?: GraphOptions) {
         if (options) {
             this.isDirected = options.directed ?? this.isDirected
             this.defaultWeight = options.defaultWeight ?? this.defaultWeight
