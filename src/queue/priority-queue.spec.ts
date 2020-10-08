@@ -1,4 +1,4 @@
-import { PriorityQueue } from '../src/queue'
+import { PriorityQueue } from '.'
 
 describe('priority queue', () => {
     it('enqueue', function() {

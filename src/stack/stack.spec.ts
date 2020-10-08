@@ -1,4 +1,4 @@
-import { Stack } from '../src'
+import { Stack } from '.'
 
 describe('Stack', () => {
     it('push', function() {

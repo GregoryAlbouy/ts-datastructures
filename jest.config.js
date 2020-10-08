@@ -9,7 +9,10 @@ module.exports = {
         },
     },
     preset: 'ts-jest',
-    roots: ['./test'],
+    roots: [
+        './src/',
+        './test/',
+    ],
     setupFilesAfterEnv: ['./test/jest.setup.ts'],
     testEnvironment: 'node',
     testPathIgnorePatterns: ['./test/e2e'],

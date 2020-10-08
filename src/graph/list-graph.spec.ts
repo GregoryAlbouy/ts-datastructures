@@ -1,4 +1,4 @@
-import { ListGraph, Vertex } from '../src/graph'
+import { ListGraph, Vertex } from '.'
 
 describe('list graph', function() {
     let graph: ListGraph<{ desc?: string }>

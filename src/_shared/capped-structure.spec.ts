@@ -1,7 +1,7 @@
 import {
     CappedStructure,
     guardOverflow,
-} from '../src/_shared'
+} from '.'
 
 describe('guardOverflow', function() {
     it('insert values', function() {

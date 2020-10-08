@@ -1,4 +1,4 @@
-import { BinaryHeap } from '../src'
+import { BinaryHeap } from '.'
 
 describe('binary heap', function() {
     it('insert', function() {

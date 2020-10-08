@@ -1,4 +1,4 @@
-import { compareMethods } from '../src/_shared'
+import { compareMethods } from '.'
 
 describe('compare methods', function() {
     const testObject = {

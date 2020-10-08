@@ -1,7 +1,7 @@
 import {
     // List,
     DoublyLinkedList,
-} from '../src'
+} from '.'
 
 describe('doubly linked list', () => {
     it('push', function() {

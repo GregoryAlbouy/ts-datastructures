@@ -1,5 +1,5 @@
-import { BinarySearchTree } from '../src'
-import { TraverseMethod } from '../src/tree/binary-search-tree'
+import { BinarySearchTree } from '.'
+import { TraverseMethod } from '../_shared'
 
 describe('binary search tree', function() {
     it('insert', function() {

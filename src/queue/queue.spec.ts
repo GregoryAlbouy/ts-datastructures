@@ -1,4 +1,4 @@
-import { Queue } from '../src'
+import { Queue } from '.'
 
 describe('Queue', () => {
     it('enqueue', function() {
